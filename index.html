@@ -4,121 +4,470 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Corvix Security | Suporte de TI, Redes e Cybersecurity</title>
-  <meta name="description" content="Corvix Security oferece suporte de TI, redes, cybersecurity e consultoria para empresas." />
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="A Corvix Security oferece soluções robustas de Suporte de TI, Redes, Cybersecurity, Segurança de Dados, Consultoria e Suporte 24/7 para empresas que buscam segurança e estabilidade." />
+  
+  <!-- Fontes do Google -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- FontAwesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  
+  <!-- Estilos Customizados -->
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <header class="header">
-    <nav class="nav">
-      <div class="logo">CORVIX<span>Security</span></div>
-      <a href="#contato" class="btn">Solicitar contato</a>
-    </nav>
 
-    <section class="hero">
-      <div>
-        <p class="tag">Smart • Secure • Safety</p>
-        <h1>Segurança, suporte e infraestrutura de TI para empresas.</h1>
-        <p class="hero-text">
-          A Corvix Security ajuda empresas a protegerem seus dados, redes e sistemas com soluções práticas em TI, cybersecurity e consultoria.
-        </p>
-        <div class="hero-actions">
-          <a href="#pacotes" class="btn">Ver pacotes</a>
-          <a href="#servicos" class="btn secondary">Nossos serviços</a>
-        </div>
-      </div>
-    </section>
+  <!-- Header / Navegação -->
+  <header class="header-main">
+    <nav class="nav-container">
+      <a href="#" class="logo">
+        <img src="site foto.png" alt="Corvix Security Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';" />
+        <span id="logo-text" class="logo-text-fallback">CORVIX <span>Security</span></span>
+      </a>
+
+      <!-- Menu Desktop -->
+      <ul class="nav-menu">
+        <li><a href="#home" class="nav-link active">Home</a></li>
+        <li><a href="#servicos" class="nav-link">Serviços</a></li>
+        <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
+        <li><a href="#pacotes" class="nav-link">Pacotes</a></li>
+        <li><a href="#contato" class="nav-link btn-nav">Fale Conosco</a></li>
+      </ul>
+
+      <!-- Toggle Menu Mobile -->
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
   </header>
 
-  <main>
-    <section id="servicos" class="section">
-      <h2>Serviços</h2>
-      <div class="grid">
-        <div class="card">
+  <!-- Menu Mobile Dropdown -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li><a href="#home" class="mobile-link">Home</a></li>
+      <li><a href="#servicos" class="mobile-link">Serviços</a></li>
+      <li><a href="#sobre" class="mobile-link">Sobre Nós</a></li>
+      <li><a href="#pacotes" class="mobile-link">Pacotes</a></li>
+      <li><a href="#contato" class="mobile-link btn-mobile-nav">Fale Conosco</a></li>
+    </ul>
+  </div>
+
+  <!-- Hero Section -->
+  <section id="home" class="hero-section">
+    <div class="hero-overlay"></div>
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Tecnologia & Segurança Digital</span>
+        <h1 class="hero-title">
+          Infraestrutura de TI & Proteção Contra Ameaças para sua Empresa
+        </h1>
+        <p class="hero-subtitle">
+          Especialistas em <span id="typewriter" class="typewriter"></span><span class="cursor">|</span> para blindar sua rede, otimizar seus processos e garantir que sua operação nunca pare.
+        </p>
+        <div class="hero-actions">
+          <a href="#contato" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Solicitar Análise Grátis</a>
+          <a href="#servicos" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Conhecer Serviços</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="site foto.png" alt="Corvix Security Dashboard" class="hero-img" />
+          <div class="floating-badge badge-1">
+            <i class="fa-solid fa-lock-open color-cyan"></i>
+            <div>
+              <h4>Segurança</h4>
+              <p>100% Protegido</p>
+            </div>
+          </div>
+          <div class="floating-badge badge-2">
+            <i class="fa-solid fa-circle-check color-green"></i>
+            <div>
+              <h4>Suporte 24/7</h4>
+              <p>Sempre Ativo</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Serviços Section -->
+  <section id="servicos" class="services-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">O que fazemos</span>
+        <h2 class="section-title">Serviços Especializados de TI</h2>
+        <p class="section-description">
+          Soluções completas e integradas para atender a todas as demandas tecnológicas da sua empresa com máxima segurança.
+        </p>
+      </div>
+
+      <div class="services-grid">
+        <!-- Suporte de TI -->
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-laptop-code"></i>
+          </div>
           <h3>Suporte de TI</h3>
-          <p>Atendimento técnico, manutenção, configuração de sistemas, computadores e ambientes corporativos.</p>
+          <p>Manutenção preventiva, configuração de estações de trabalho e assistência rápida para que seus colaboradores produzam sem interrupções.</p>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('suporte_ti')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="card">
+        <!-- Redes -->
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-network-wired"></i>
+          </div>
           <h3>Redes</h3>
-          <p>Configuração de redes, roteadores, switches, Wi-Fi, VPN, segmentação e infraestrutura.</p>
+          <p>Projeto, implementação e otimização de infraestrutura de rede local (LAN), roteadores, switches corporativos, Wi-Fi corporativo estável e VPN segura.</p>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('redes')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="card">
+        <!-- Cybersecurity -->
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-shield-halved"></i>
+          </div>
           <h3>Cybersecurity</h3>
-          <p>Proteção contra ameaças digitais, análise de vulnerabilidades, hardening e boas práticas de segurança.</p>
+          <p>Auditorias de segurança, testes de invasão, blindagem de sistemas (hardening) e monitoramento ativo contra ataques virtuais.</p>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('cybersecurity')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
-        <div class="card">
+        <!-- Segurança de Dados -->
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-database"></i>
+          </div>
+          <h3>Segurança de Dados</h3>
+          <p>Políticas de backup automático (em nuvem e físico), recuperação de desastres e criptografia para proteger as informações confidenciais do seu negócio.</p>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('seguranca_dados')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Consultoria -->
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-brain"></i>
+          </div>
           <h3>Consultoria</h3>
-          <p>Orientação estratégica para melhorar segurança, produtividade e estrutura tecnológica da empresa.</p>
+          <p>Planejamento estratégico de TI, alinhamento com a LGPD e orientação profissional para investimentos inteligentes em hardware e software.</p>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('consultoria')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+
+        <!-- Suporte 24/7 -->
+        <div class="service-card">
+          <div class="service-icon-wrapper">
+            <i class="fa-solid fa-headset"></i>
+          </div>
+          <h3>Suporte 24/7</h3>
+          <p>Monitoramento ininterrupto e pronto atendimento em regime de plantão para sistemas críticos que não podem parar em momento algum.</p>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('suporte_247')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section id="pacotes" class="section dark">
-      <h2>Pacotes</h2>
-
-      <div class="grid">
-        <div class="package">
-          <h3>Pacote Segurança</h3>
-          <ul>
-            <li>Análise inicial de segurança</li>
-            <li>Verificação de vulnerabilidades</li>
-            <li>Hardening básico</li>
-            <li>Boas práticas para usuários</li>
-            <li>Relatório com recomendações</li>
-          </ul>
-        </div>
-
-        <div class="package featured">
-          <h3>Pacote Redes</h3>
-          <ul>
-            <li>Configuração de rede local</li>
-            <li>Wi-Fi corporativo</li>
-            <li>VPN para acesso remoto</li>
-            <li>Organização de infraestrutura</li>
-            <li>Melhoria de estabilidade e performance</li>
-          </ul>
-        </div>
-
-        <div class="package">
-          <h3>Suporte Mensal</h3>
-          <ul>
-            <li>Suporte recorrente de TI</li>
-            <li>Monitoramento preventivo</li>
-            <li>Manutenção de computadores</li>
-            <li>Atualizações e segurança básica</li>
-            <li>Atendimento remoto e presencial sob demanda</li>
-          </ul>
+  <!-- Sobre / Infos Section -->
+  <section id="sobre" class="about-section">
+    <div class="section-container about-grid">
+      <div class="about-info">
+        <span class="section-tag">Por que a Corvix?</span>
+        <h2 class="section-title">Sua empresa protegida por especialistas</h2>
+        <p class="about-text">
+          A Corvix Security combina suporte de alto nível, engenharia de redes avançada e as melhores práticas de cybersecurity do mercado. Nosso foco é blindar pequenas, médias e grandes empresas contra vulnerabilidades digitais enquanto mantemos a produtividade no nível máximo.
+        </p>
+        
+        <div class="features-list">
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+              <h4>Foco em Segurança Corporativa</h4>
+              <p>Toda a nossa infraestrutura e processos de TI são pensados sob a ótica da segurança da informação.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+              <h4>Atendimento Rápido e Humano</h4>
+              <p>Sem filas de espera intermináveis ou robôs sem respostas. Fale diretamente com técnicos especializados.</p>
+            </div>
+          </div>
+          <div class="feature-item">
+            <div class="feature-icon"><i class="fa-solid fa-circle-check"></i></div>
+            <div>
+              <h4>Tecnologia de Ponta</h4>
+              <p>Utilizamos ferramentas líderes de mercado para monitoramento de redes e mitigação de ameaças digitais.</p>
+            </div>
+          </div>
         </div>
       </div>
-    </section>
 
-    <section class="section about">
-      <h2>Por que escolher a Corvix?</h2>
-      <p>
-        Unimos suporte técnico, redes e segurança da informação para entregar soluções diretas, modernas e acessíveis para pequenas e médias empresas.
-      </p>
-    </section>
+      <div class="about-stats-card">
+        <div class="stats-item">
+          <span class="stats-number">99.9%</span>
+          <span class="stats-label">Uptime de Sistemas</span>
+        </div>
+        <div class="stats-item">
+          <span class="stats-number">5519</span>
+          <span class="stats-label">Número de Suporte Dedicado</span>
+        </div>
+        <div class="stats-item">
+          <span class="stats-number">100%</span>
+          <span class="stats-label">Segurança de Dados</span>
+        </div>
+        <div class="stats-item">
+          <span class="stats-number">+24/7</span>
+          <span class="stats-label">Monitoramento Ativo</span>
+        </div>
+      </div>
+    </div>
+  </section>
 
-    <section id="contato" class="section contact">
-      <h2>Solicite uma análise</h2>
-      <p>Entre em contato para entender como a Corvix Security pode proteger e melhorar sua infraestrutura de TI.</p>
+  <!-- Pacotes Section -->
+  <section id="pacotes" class="packages-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Planos Customizados</span>
+        <h2 class="section-title">Pacotes de Serviços Corporativos</h2>
+        <p class="section-description">
+          Escolha o pacote ideal para a realidade atual do seu negócio e eleve a maturidade tecnológica da sua empresa.
+        </p>
+      </div>
 
-      <form onsubmit="sendMessage(event)">
-        <input type="text" id="name" placeholder="Seu nome" required />
-        <input type="email" id="email" placeholder="Seu e-mail" required />
-        <textarea id="message" placeholder="Descreva o que sua empresa precisa" required></textarea>
-        <button type="submit" class="btn">Enviar pelo WhatsApp</button>
-      </form>
-    </section>
-  </main>
+      <div class="packages-grid">
+        <!-- Pacote Segurança -->
+        <div class="package-card">
+          <div class="package-header">
+            <h3>Pacote Segurança</h3>
+            <p class="package-desc">Foco na mitigação de riscos e conformidade básica.</p>
+          </div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check"></i> Análise de Vulnerabilidades</li>
+            <li><i class="fa-solid fa-check"></i> Hardening de Dispositivos</li>
+            <li><i class="fa-solid fa-check"></i> Configuração de Firewalls</li>
+            <li><i class="fa-solid fa-check"></i> Antivírus Corporativo</li>
+            <li><i class="fa-solid fa-check"></i> Relatório Mensal de Riscos</li>
+          </ul>
+          <div class="package-footer">
+            <a href="#contato" class="btn btn-secondary" onclick="prefillPackage('Pacote Segurança')">Contratar Pacote</a>
+          </div>
+        </div>
 
-  <footer>
-    <p>© 2026 Corvix Security. Todos os direitos reservados.</p>
-    <p>corvix.tec.br</p>
+        <!-- Pacote Internet / Conexão -->
+        <div class="package-card">
+          <div class="package-header">
+            <h3>Pacote Internet/Conexão</h3>
+            <p class="package-desc">Ideal para otimização de infraestrutura física e Wi-Fi.</p>
+          </div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check"></i> Configuração de Roteadores</li>
+            <li><i class="fa-solid fa-check"></i> Wi-Fi Corporativo Criptografado</li>
+            <li><i class="fa-solid fa-check"></i> VPN Segura para Home Office</li>
+            <li><i class="fa-solid fa-check"></i> Controle de Banda e Tráfego</li>
+            <li><i class="fa-solid fa-check"></i> Redundância de Conexão</li>
+          </ul>
+          <div class="package-footer">
+            <a href="#contato" class="btn btn-secondary" onclick="prefillPackage('Pacote Internet/Conexão')">Contratar Pacote</a>
+          </div>
+        </div>
+
+        <!-- Pacote Suporte / Consultoria -->
+        <div class="package-card featured">
+          <div class="featured-badge">Mais Procurado</div>
+          <div class="package-header">
+            <h3>Pacote Suporte/Consultoria</h3>
+            <p class="package-desc">TI completa e direcionamento estratégico contínuo.</p>
+          </div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check"></i> Suporte Técnico Ilimitado (Remoto)</li>
+            <li><i class="fa-solid fa-check"></i> Manutenção Preventiva de PCs</li>
+            <li><i class="fa-solid fa-check"></i> Consultoria Trimestral de TI</li>
+            <li><i class="fa-solid fa-check"></i> Configurações de Servidores</li>
+            <li><i class="fa-solid fa-check"></i> Auxílio em Compras de TI</li>
+          </ul>
+          <div class="package-footer">
+            <a href="#contato" class="btn btn-primary" onclick="prefillPackage('Pacote Suporte/Consultoria')">Contratar Pacote</a>
+          </div>
+        </div>
+
+        <!-- Pacote Proteção Total -->
+        <div class="package-card">
+          <div class="package-header">
+            <h3>Pacote Proteção Total</h3>
+            <p class="package-desc">A segurança e o suporte definitivos para sua empresa.</p>
+          </div>
+          <ul class="package-features">
+            <li><i class="fa-solid fa-check"></i> Suporte em TI e Redes 24/7</li>
+            <li><i class="fa-solid fa-check"></i> Monitoramento Ativo Antiaque</li>
+            <li><i class="fa-solid fa-check"></i> Backups Blindados em Nuvem</li>
+            <li><i class="fa-solid fa-check"></i> Recuperação de Desastres (DRP)</li>
+            <li><i class="fa-solid fa-check"></i> Treinamento de Conscientização</li>
+          </ul>
+          <div class="package-footer">
+            <a href="#contato" class="btn btn-secondary" onclick="prefillPackage('Pacote Proteção Total')">Contratar Pacote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contato / Formulário -->
+  <section id="contato" class="contact-section">
+    <div class="section-container contact-wrapper">
+      <div class="contact-info-panel">
+        <span class="section-tag">Contato Rápido</span>
+        <h2 class="section-title">Fale Conosco</h2>
+        <p class="contact-subtitle">
+          Precisa de suporte imediato ou quer uma cotação personalizada? Envie sua mensagem e fale conosco diretamente pelo WhatsApp.
+        </p>
+
+        <div class="contact-methods">
+          <div class="method-item">
+            <div class="method-icon"><i class="fa-brands fa-whatsapp"></i></div>
+            <div>
+              <h4>WhatsApp Comercial</h4>
+              <p><a href="https://wa.me/5519995347558" target="_blank" class="contact-link">(19) 99534-7558</a></p>
+            </div>
+          </div>
+          <div class="method-item">
+            <div class="method-icon"><i class="fa-solid fa-envelope"></i></div>
+            <div>
+              <h4>E-mail Corporativo</h4>
+              <p><a href="mailto:corvixtech@outlook.com" class="contact-link">corvixtech@outlook.com</a></p>
+            </div>
+          </div>
+          <div class="method-item">
+            <div class="method-icon"><i class="fa-solid fa-clock"></i></div>
+            <div>
+              <h4>Horário de Atendimento</h4>
+              <p>Suporte Emergencial 24/7<br>Comercial: Seg a Sex, 8h às 18h</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="contact-form-panel">
+        <h3>Solicite uma Proposta</h3>
+        <form onsubmit="sendMessage(event)" class="contact-form">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="name" placeholder="Seu nome ou da sua empresa" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="email">E-mail de Contato</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="email" placeholder="exemplo@empresa.com" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service-select">Serviço ou Pacote de Interesse</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-handshake"></i>
+              <select id="service-select" required>
+                <option value="" disabled selected>Selecione uma opção</option>
+                <optgroup label="Serviços Individuais">
+                  <option value="Suporte de TI">Suporte de TI</option>
+                  <option value="Redes">Redes</option>
+                  <option value="Cybersecurity">Cybersecurity</option>
+                  <option value="Segurança de Dados">Segurança de Dados</option>
+                  <option value="Consultoria">Consultoria</option>
+                  <option value="Suporte 24/7">Suporte 24/7</option>
+                </optgroup>
+                <optgroup label="Pacotes Completos">
+                  <option value="Pacote Segurança">Pacote Segurança</option>
+                  <option value="Pacote Internet/Conexão">Pacote Internet/Conexão</option>
+                  <option value="Pacote Suporte/Consultoria">Pacote Suporte/Consultoria</option>
+                  <option value="Pacote Proteção Total">Pacote Proteção Total</option>
+                </optgroup>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Mensagem / Detalhes do Projeto</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-message"></i>
+              <textarea id="message" placeholder="Como podemos ajudar sua empresa hoje?" required></textarea>
+            </div>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-submit">
+            <i class="fa-brands fa-whatsapp"></i> Enviar Mensagem via WhatsApp
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rodapé -->
+  <footer class="footer-main">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="#" class="logo footer-logo">
+          <img src="site foto.png" alt="Corvix Security Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('footer-logo-text').style.display='block';" />
+          <span id="footer-logo-text" class="logo-text-fallback">CORVIX <span>Security</span></span>
+        </a>
+        <p>Garantindo a estabilidade e a segurança tecnológica que o seu negócio precisa para crescer sem riscos.</p>
+        <div class="social-links">
+          <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+          <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://wa.me/5519995347558" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+        </div>
+      </div>
+
+      <div class="footer-nav">
+        <h4>Navegação</h4>
+        <ul>
+          <li><a href="#home">Home</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#sobre">Sobre Nós</a></li>
+          <li><a href="#pacotes">Pacotes</a></li>
+          <li><a href="#contato">Contato</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-services">
+        <h4>Serviços</h4>
+        <ul>
+          <li><a href="#servicos">Suporte de TI</a></li>
+          <li><a href="#servicos">Redes</a></li>
+          <li><a href="#servicos">Cybersecurity</a></li>
+          <li><a href="#servicos">Segurança de Dados</a></li>
+          <li><a href="#servicos">Consultoria</a></li>
+          <li><a href="#servicos">Suporte 24/7</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>© 2026 Corvix Security. Todos os direitos reservados. | <a href="#">Política de Privacidade</a></p>
+      <p class="domain-text">corvix.tec.br</p>
+    </div>
   </footer>
 
+  <!-- Botão Flutuante do WhatsApp -->
+  <a href="https://wa.me/5519995347558" target="_blank" class="whatsapp-floating-btn" aria-label="Conversar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <!-- Modal de Detalhes dos Serviços -->
+  <div class="service-modal" id="service-modal">
+    <div class="modal-content">
+      <button class="modal-close" id="modal-close" aria-label="Fechar">&times;</button>
+      <div class="modal-body" id="modal-body">
+        <!-- Conteúdo inserido dinamicamente via Javascript -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Script Principal -->
   <script src="script.js"></script>
 </body>
 </html>
