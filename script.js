@@ -3,11 +3,13 @@
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
+  initTheme();
   initMobileMenu();
   initTypewriter();
   initHeaderScroll();
   initScrollSpy();
   initModalListeners();
+  initFormMessagePrefill();
 });
 
 /* ==========================================================================
@@ -134,17 +136,60 @@ function initScrollSpy() {
 /* ==========================================================================
    Funções de Autofill (Preenchimento Rápido do Formulário)
    ========================================================================== */
+const defaultMessages = {
+  // Serviços
+  "Suporte de TI": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Suporte de TI. Preciso de suporte técnico e manutenção para a minha empresa.",
+  "Redes": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Redes. Preciso otimizar e estruturar a rede de internet da minha empresa.",
+  "Cybersecurity": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Cybersecurity. Preciso proteger a minha empresa contra ameaças digitais e invasões.",
+  "Segurança de Dados": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Segurança de Dados. Preciso implementar rotinas de backup e segurança da informação.",
+  "Consultoria": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Consultoria. Preciso de orientação estratégica e adequação em TI para a minha empresa.",
+  "Suporte 24/7": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Suporte 24/7. Tenho operações críticas e preciso de monitoramento constante.",
+  
+  // Pacotes
+  "Pacote Segurança": "Olá, Corvix! Gostaria de contratar o Pacote Segurança. Preciso de análise de vulnerabilidades, hardening e segurança antivírus corporativo.",
+  "Pacote Internet/Conexão": "Olá, Corvix! Gostaria de contratar o Pacote Internet/Conexão. Preciso de configuração de roteadores corporativos, Wi-Fi seguro e VPN.",
+  "Pacote Suporte/Consultoria": "Olá, Corvix! Gostaria de contratar o Pacote Suporte/Consultoria. Preciso de suporte remoto ilimitado e consultoria estratégica em TI.",
+  "Pacote Proteção Total": "Olá, Corvix! Gostaria de contratar o Pacote Proteção Total. Preciso do escopo completo de suporte, redes seguras, backups em nuvem e monitoramento 24/7."
+};
+
 function prefillService(serviceName) {
   const select = document.getElementById("service-select");
+  const messageArea = document.getElementById("message");
   if (select) {
     select.value = serviceName;
+  }
+  if (messageArea && defaultMessages[serviceName]) {
+    messageArea.value = defaultMessages[serviceName];
   }
 }
 
 function prefillPackage(packageName) {
   const select = document.getElementById("service-select");
+  const messageArea = document.getElementById("message");
   if (select) {
     select.value = packageName;
+  }
+  if (messageArea && defaultMessages[packageName]) {
+    messageArea.value = defaultMessages[packageName];
+  }
+}
+
+// Escuta a mudança manual no dropdown do formulário
+function initFormMessagePrefill() {
+  const serviceSelect = document.getElementById("service-select");
+  const messageArea = document.getElementById("message");
+  
+  if (serviceSelect && messageArea) {
+    serviceSelect.addEventListener("change", (e) => {
+      const selectedValue = e.target.value;
+      const currentMsg = messageArea.value.trim();
+      
+      // Só substitui a mensagem se estiver vazia ou se contiver uma das mensagens padrão
+      const isDefault = currentMsg === "" || Object.values(defaultMessages).includes(currentMsg);
+      if (isDefault && defaultMessages[selectedValue]) {
+        messageArea.value = defaultMessages[selectedValue];
+      }
+    });
   }
 }
 
@@ -358,3 +403,71 @@ window.selectServiceFromModal = function(servicePrefillValue) {
     contactSection.scrollIntoView({ behavior: "smooth" });
   }
 };
+
+/* ==========================================================================
+   Inicialização e Alternância de Tema (Claro / Escuro)
+   ========================================================================== */
+function initTheme() {
+  const themeToggle = document.getElementById("theme-toggle");
+  const themeToggleMobile = document.getElementById("theme-toggle-mobile");
+  const systemPrefersDark = window.matchMedia("(prefers-color-scheme: dark)");
+
+  // Função interna para setar as classes do tema e ícones correspondentes
+  function applyTheme(theme) {
+    const iconDesktop = themeToggle ? themeToggle.querySelector("i") : null;
+    const iconMobile = themeToggleMobile ? themeToggleMobile.querySelector("i") : null;
+
+    if (theme === "light") {
+      document.body.classList.add("light-theme");
+      if (iconDesktop) {
+        iconDesktop.className = "fa-solid fa-moon";
+      }
+      if (iconMobile) {
+        iconMobile.className = "fa-solid fa-moon";
+      }
+    } else {
+      document.body.classList.remove("light-theme");
+      if (iconDesktop) {
+        iconDesktop.className = "fa-solid fa-sun";
+      }
+      if (iconMobile) {
+        iconMobile.className = "fa-solid fa-sun";
+      }
+    }
+  }
+
+  // Verifica o tema salvo no localStorage, senão herda do sistema operacional
+  const savedTheme = localStorage.getItem("theme");
+  if (savedTheme) {
+    applyTheme(savedTheme);
+  } else {
+    applyTheme(systemPrefersDark.matches ? "dark" : "light");
+  }
+
+  // Monitora clique no alternador de tema desktop
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      const isCurrentlyLight = document.body.classList.contains("light-theme");
+      const nextTheme = isCurrentlyLight ? "dark" : "light";
+      localStorage.setItem("theme", nextTheme);
+      applyTheme(nextTheme);
+    });
+  }
+
+  // Monitora clique no alternador de tema mobile
+  if (themeToggleMobile) {
+    themeToggleMobile.addEventListener("click", () => {
+      const isCurrentlyLight = document.body.classList.contains("light-theme");
+      const nextTheme = isCurrentlyLight ? "dark" : "light";
+      localStorage.setItem("theme", nextTheme);
+      applyTheme(nextTheme);
+    });
+  }
+
+  // Observa mudanças nas configurações do sistema em tempo real
+  systemPrefersDark.addEventListener("change", (e) => {
+    if (!localStorage.getItem("theme")) {
+      applyTheme(e.matches ? "dark" : "light");
+    }
+  });
+}
