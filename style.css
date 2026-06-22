@@ -26,6 +26,40 @@
   --glass-bg: rgba(12, 26, 48, 0.65);
   --glass-border: rgba(0, 210, 255, 0.15);
   --shadow-glow: 0 0 20px rgba(0, 210, 255, 0.15);
+
+  /* Elementos Adaptáveis de Fundo */
+  --hero-bg-gradient: linear-gradient(rgba(2, 6, 13, 0.82), rgba(2, 6, 13, 0.95)),
+                      radial-gradient(circle at 80% 20%, rgba(12, 43, 92, 0.5), transparent 45%),
+                      radial-gradient(circle at 10% 80%, rgba(15, 34, 63, 0.4), transparent 50%);
+  --header-bg: rgba(2, 6, 13, 0.85);
+  --input-bg: var(--color-blue-dark-2);
+  --input-border: rgba(255, 255, 255, 0.05);
+}
+
+body.light-theme {
+  /* Redefinição para o Tema Claro (Azul escuro, cinza, preto e branco invertido) */
+  --color-black: #f1f5f9;           /* Cinza ultra-claro de fundo */
+  --color-blue-dark-1: #ffffff;     /* Branco para seções principais */
+  --color-blue-dark-2: #cbd5e1;     /* Cinza/azul claro para bordas e divisores */
+  --color-blue-card: #ffffff;       /* Cards brancos */
+  --color-gray: #475569;            /* Cinza escuro para suporte de leitura */
+  --color-gray-light: #0f172a;      /* Azul escuro/preto para texto principal */
+  --color-white: #02060d;           /* Inverte texto branco para ultra-escuro */
+  
+  /* Tons de Acento Claros (Azul profissional corporativo em vez de ciano neon) */
+  --color-accent: #0f5fb8;          /* Azul profissional escuro */
+  --color-accent-hover: #0a4a90;    /* Hover do azul profissional */
+  
+  --glass-bg: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(15, 95, 184, 0.12);
+  --shadow-glow: 0 10px 30px rgba(15, 95, 184, 0.08);
+
+  --hero-bg-gradient: linear-gradient(rgba(241, 245, 249, 0.9), rgba(241, 245, 249, 0.95)),
+                      radial-gradient(circle at 80% 20%, rgba(15, 95, 184, 0.12), transparent 45%),
+                      radial-gradient(circle at 10% 80%, rgba(200, 210, 230, 0.25), transparent 50%);
+  --header-bg: rgba(241, 245, 249, 0.9);
+  --input-bg: #ffffff;
+  --input-border: #94a3b8;
 }
 
 /* Reset Básico */
@@ -144,7 +178,7 @@ a {
   left: 0;
   width: 100%;
   z-index: 1000;
-  background-color: rgba(2, 6, 13, 0.85);
+  background-color: var(--header-bg);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid rgba(255, 255, 255, 0.03);
   transition: var(--transition-smooth);
@@ -178,9 +212,15 @@ a {
 }
 
 .logo-img {
-  max-height: 48px;
+  max-height: 52px;
+  width: auto;
   object-fit: contain;
   border-radius: 4px;
+  transition: var(--transition-smooth);
+}
+
+.logo:hover .logo-img {
+  transform: scale(1.05);
 }
 
 .logo-text-fallback span {
@@ -315,10 +355,7 @@ a {
   display: flex;
   align-items: center;
   padding-top: 120px;
-  background: 
-    linear-gradient(rgba(2, 6, 13, 0.82), rgba(2, 6, 13, 0.95)),
-    radial-gradient(circle at 80% 20%, rgba(12, 43, 92, 0.5), transparent 45%),
-    radial-gradient(circle at 10% 80%, rgba(15, 34, 63, 0.4), transparent 50%);
+  background: var(--hero-bg-gradient);
   overflow: hidden;
 }
 
@@ -884,8 +921,8 @@ a {
 .input-wrapper select,
 .input-wrapper textarea {
   width: 100%;
-  background-color: var(--color-blue-dark-2);
-  border: 1.5px solid rgba(255, 255, 255, 0.05);
+  background-color: var(--input-bg);
+  border: 1.5px solid var(--input-border);
   color: var(--color-white);
   padding: 14px 16px 14px 44px;
   border-radius: 8px;
@@ -1288,4 +1325,73 @@ a {
   .modal-bullets {
     grid-template-columns: 1fr;
   }
+}
+
+/* ==========================================================================
+   Estilização do Botão de Alternância de Tema
+   ========================================================================== */
+.theme-toggle-btn {
+  background: none;
+  border: none;
+  color: var(--color-gray-light);
+  font-size: 1.2rem;
+  cursor: pointer;
+  padding: 6px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-smooth);
+  border-radius: 6px;
+}
+
+.theme-toggle-btn:hover {
+  color: var(--color-accent);
+  background-color: rgba(255, 255, 255, 0.05);
+  transform: scale(1.1);
+}
+
+body.light-theme .theme-toggle-btn:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+/* Ajustes Específicos para o Tema Claro */
+body.light-theme .logo-img {
+  /* Caso o logo original site foto.png seja muito claro/branco, aplicamos 
+     um filtro de inversão para garantir contraste em fundo claro */
+  filter: brightness(0.2); 
+}
+
+body.light-theme .hero-overlay {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+body.light-theme .nav-link:hover, 
+body.light-theme .nav-link.active {
+  color: var(--color-accent);
+}
+
+body.light-theme .btn-secondary {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}
+
+body.light-theme .btn-secondary:hover {
+  background-color: rgba(15, 95, 184, 0.05);
+}
+
+body.light-theme .service-card,
+body.light-theme .package-card,
+body.light-theme .contact-form-panel {
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+body.light-theme .package-card.featured {
+  border: 2px solid var(--color-accent);
+  box-shadow: 0 10px 30px rgba(15, 95, 184, 0.15);
+}
+
+body.light-theme .contact-wrapper {
+  box-shadow: 0 10px 45px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.06);
 }
