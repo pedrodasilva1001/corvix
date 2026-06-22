@@ -1356,7 +1356,7 @@ body.light-theme .theme-toggle-btn:hover {
 
 /* Ajustes Específicos para o Tema Claro */
 body.light-theme .logo-img {
-  /* Caso o logo original site foto.png seja muito claro/branco, aplicamos 
+  /* Caso o logo original sitefoto.png seja muito claro/branco, aplicamos 
      um filtro de inversão para garantir contraste em fundo claro */
   filter: brightness(0.2); 
 }
