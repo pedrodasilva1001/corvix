@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cybersecurity & Proteção Digital | Corvix Security</title>
+  <meta name="description" content="Proteja sua empresa contra ataques de hackers, ransomware, vazamento de dados e vulnerabilidades digitais com a Corvix Security." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header-main">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="sitefoto.png" alt="Corvix Security Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';" />
+        <span id="logo-text" class="logo-text-fallback" style="display: none;">CORVIX <span>Security</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#servicos" class="nav-link active">Serviços</a></li>
+        <li><a href="index.html#sobre" class="nav-link">Sobre Nós</a></li>
+        <li><a href="index.html#pacotes" class="nav-link">Pacotes</a></li>
+        <li><a href="index.html#contato" class="nav-link btn-nav">Fale Conosco</a></li>
+        <li><button id="theme-toggle" class="theme-toggle-btn" aria-label="Alterar Tema"><i class="fa-solid fa-sun"></i></button></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li><a href="index.html#home" class="mobile-link">Home</a></li>
+      <li><a href="index.html#servicos" class="mobile-link">Serviços</a></li>
+      <li><a href="index.html#sobre" class="mobile-link">Sobre Nós</a></li>
+      <li><a href="index.html#pacotes" class="mobile-link">Pacotes</a></li>
+      <li><a href="index.html#contato" class="mobile-link btn-mobile-nav">Fale Conosco</a></li>
+      <li><button id="theme-toggle-mobile" class="theme-toggle-btn" aria-label="Alterar Tema"><i class="fa-solid fa-sun"></i></button></li>
+    </ul>
+  </div>
+
+  <section class="hero-section" style="min-height: 60vh; padding-top: 140px; padding-bottom: 60px;">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Blindagem Digital</span>
+        <h1 class="hero-title">Cybersecurity Avançada</h1>
+        <p class="hero-subtitle">
+          Proteja seu patrimônio digital, dados de clientes e reputação contra ransomware, invasões e golpes de phishing.
+        </p>
+        <div class="hero-actions">
+          <a href="https://api.whatsapp.com/send?phone=5519995347558&text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20an%C3%A1lise%20de%20Cybersecurity" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Solicitar Análise Grátis</a>
+          <a href="#detalhes" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Conhecer Escopo</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="sitefoto.png" alt="Cybersecurity Corvix" class="hero-img" onerror="this.style.display='none';" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="detalhes" class="services-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Mitigação de Ameaças</span>
+        <h2 class="section-title">Proteção em Múltiplas Camadas para sua Empresa</h2>
+        <p class="section-description">
+          A maioria dos ataques virtuais explora falhas simples de configuração e engenharia social. Nós fechamos essas portas.
+        </p>
+      </div>
+
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-bug"></i></div>
+          <h3>Análise de Vulnerabilidades</h3>
+          <p>Mapeamento e varredura de brechas em sistemas operacionais, roteadores e portas abertas para a internet.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-shield-virus"></i></div>
+          <h3>Antivírus Corporativo EDR</h3>
+          <p>Proteção ativa contra ransomware, execução de malware desconhecido e contenção automática de infecções.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-fire-extinguisher"></i></div>
+          <h3>Gestão de Firewalls</h3>
+          <p>Bloqueio de sites maliciosos, controle de conteúdo improdutivo e regras rigorosas de entrada/saída de dados.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-graduation-cap"></i></div>
+          <h3>Treinamento Antiphishing</h3>
+          <p>Treinamento prático e simulação de ataques de e-mail malicioso para conscientizar seus colaboradores.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-gears"></i></div>
+          <h3>Hardening de Sistemas</h3>
+          <p>Configuração rígida de segurança em servidores e computadores para neutralizar vetores comuns de invasão.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-key"></i></div>
+          <h3>Autenticação de Dois Fatores (2FA)</h3>
+          <p>Implementação de duplo fator de autenticação em e-mails, acessos remotos e sistemas da empresa.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Dúvidas Frequentes</span>
+        <h2 class="section-title">Perguntas sobre Cybersecurity</h2>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="faq-item">
+          <button class="faq-question">Minha empresa é pequena, realmente preciso de cybersecurity? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Sim! Mais de 60% dos ataques virtuais visam pequenas e médias empresas justamente porque costumam ter proteções mais fracas.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">O que acontece se um ransomware criptografar meus arquivos? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Com as nossas proteções de EDR e estratégia de backups imutáveis, isolamos a ameaça e restauramos seus sistemas sem pagar resgates.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="section-container contact-wrapper" style="grid-template-columns: 1fr;">
+      <div class="contact-form-panel" style="max-width: 700px; margin: 0 auto; width: 100%;">
+        <h3>Solicite uma Análise de Segurança</h3>
+        <form onsubmit="sendMessage(event)" class="contact-form">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="name" placeholder="Seu nome ou da sua empresa" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="phone">Telefone / WhatsApp</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-phone"></i>
+              <input type="tel" id="phone" placeholder="(19) 99999-9999" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail (Opcional)</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="email" placeholder="exemplo@empresa.com" />
+            </div>
+          </div>
+          <input type="hidden" id="service-select" value="Cybersecurity" />
+          <div class="form-group">
+            <label for="message">Mensagem / Detalhes</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-message"></i>
+              <textarea id="message" required>Olá, gostaria de solicitar uma proposta/análise de Cybersecurity para blindar a minha empresa.</textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">
+            <i class="fa-brands fa-whatsapp"></i> Falar com Especialista em Segurança
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-main">
+    <div class="footer-bottom">
+      <p>© 2026 Corvix Security. Todos os direitos reservados. | <a href="index.html">Voltar para a Home</a> | <a href="index.html#contato" onclick="localStorage.setItem('prefill', 'Trabalhe Conosco')">Trabalhe Conosco</a></p>
+      <p class="domain-text">corvix.tec.br</p>
+    </div>
+  </footer>
+
+  <a href="https://api.whatsapp.com/send?phone=5519995347558" target="_blank" class="whatsapp-floating-btn" aria-label="Conversar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>
