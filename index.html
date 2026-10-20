@@ -416,15 +416,23 @@
           </div>
 
           <div class="form-group">
-            <label for="email">E-mail de Contato</label>
+            <label for="phone">Telefone / WhatsApp</label>
             <div class="input-wrapper">
-              <i class="fa-solid fa-envelope"></i>
-              <input type="email" id="email" placeholder="exemplo@empresa.com" required />
+              <i class="fa-solid fa-phone"></i>
+              <input type="tel" id="phone" placeholder="(19) 99999-9999" required />
             </div>
           </div>
 
           <div class="form-group">
-            <label for="service-select">Serviço ou Pacote de Interesse</label>
+            <label for="email">E-mail (Opcional)</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="email" placeholder="exemplo@empresa.com" />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="service-select">Serviço ou Assunto de Interesse</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-handshake"></i>
               <select id="service-select" required>
@@ -442,6 +450,9 @@
                   <option value="Pacote Internet/Conexão">Pacote Internet/Conexão</option>
                   <option value="Pacote Suporte/Consultoria">Pacote Suporte/Consultoria</option>
                   <option value="Pacote Proteção Total">Pacote Proteção Total</option>
+                </optgroup>
+                <optgroup label="Oportunidades">
+                  <option value="Trabalhe Conosco">Trabalhe Conosco</option>
                 </optgroup>
               </select>
             </div>
@@ -487,6 +498,7 @@
           <li><a href="#sobre">Sobre Nós</a></li>
           <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#contato">Contato</a></li>
+          <li><a href="#contato" onclick="prefillService('Trabalhe Conosco')">Trabalhe Conosco</a></li>
         </ul>
       </div>
 

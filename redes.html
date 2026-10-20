@@ -146,10 +146,17 @@
             </div>
           </div>
           <div class="form-group">
-            <label for="email">E-mail de Contato</label>
+            <label for="phone">Telefone / WhatsApp</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-phone"></i>
+              <input type="tel" id="phone" placeholder="(19) 99999-9999" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail (Opcional)</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-envelope"></i>
-              <input type="email" id="email" placeholder="exemplo@empresa.com" required />
+              <input type="email" id="email" placeholder="exemplo@empresa.com" />
             </div>
           </div>
           <input type="hidden" id="service-select" value="Redes" />
@@ -170,7 +177,7 @@
 
   <footer class="footer-main">
     <div class="footer-bottom">
-      <p>© 2026 Corvix Security. Todos os direitos reservados. | <a href="index.html">Voltar para a Home</a></p>
+      <p>© 2026 Corvix Security. Todos os direitos reservados. | <a href="index.html">Voltar para a Home</a> | <a href="index.html#contato" onclick="localStorage.setItem('prefill', 'Trabalhe Conosco')">Trabalhe Conosco</a></p>
       <p class="domain-text">corvix.tec.br</p>
     </div>
   </footer>

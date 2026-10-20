@@ -11,6 +11,13 @@ document.addEventListener("DOMContentLoaded", () => {
   initModalListeners();
   initFormMessagePrefill();
   initFaqAccordion();
+
+  // Check if a prefill option was saved from subpage navigation
+  const savedPrefill = localStorage.getItem("prefill");
+  if (savedPrefill) {
+    prefillService(savedPrefill);
+    localStorage.removeItem("prefill");
+  }
 });
 
 /* ==========================================================================
@@ -178,6 +185,7 @@ const defaultMessages = {
   "Segurança de Dados": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Segurança de Dados. Preciso implementar rotinas de backup e segurança da informação.",
   "Consultoria": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Consultoria. Preciso de orientação estratégica e adequação em TI para a minha empresa.",
   "Suporte 24/7": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Suporte 24/7. Tenho operações críticas e preciso de monitoramento constante.",
+  "Trabalhe Conosco": "Estamos contratando! Tem interesse?",
 
   // Pacotes
   "Pacote Segurança": "Olá, Corvix! Gostaria de contratar o Pacote Segurança. Preciso de análise de vulnerabilidades, hardening e segurança antivírus corporativo.",
@@ -235,18 +243,20 @@ function sendMessage(event) {
 
   const form = event.target;
   const nameEl = form ? form.querySelector("#name") || document.getElementById("name") : document.getElementById("name");
+  const phoneEl = form ? form.querySelector("#phone") || document.getElementById("phone") : document.getElementById("phone");
   const emailEl = form ? form.querySelector("#email") || document.getElementById("email") : document.getElementById("email");
   const serviceEl = form ? form.querySelector("#service-select") || document.getElementById("service-select") : document.getElementById("service-select");
   const messageEl = form ? form.querySelector("#message") || document.getElementById("message") : document.getElementById("message");
 
   const name = nameEl ? nameEl.value.trim() : "";
+  const phone = phoneEl ? phoneEl.value.trim() : "";
   const email = emailEl ? emailEl.value.trim() : "";
   const service = serviceEl ? serviceEl.value : "";
   const message = messageEl ? messageEl.value.trim() : "";
 
-  // Validação básica
-  if (!name || !email || !service || !message) {
-    alert("Por favor, preencha todos os campos do formulário.");
+  // Validação básica (Telefone obrigatório, E-mail opcional)
+  if (!name || !phone || !service || !message) {
+    alert("Por favor, preencha o seu nome, telefone, assunto de interesse e mensagem.");
     return;
   }
 
@@ -254,11 +264,12 @@ function sendMessage(event) {
   const phoneNumber = "5519995347558";
 
   // Formatação profissional da mensagem
+  const emailText = email ? `\n✉️ *E-mail:* ${email}` : "";
   const text = `*CORVIX SECURITY - NOVO CONTATO DO SITE*
 
 👤 *Nome:* ${name}
-✉️ *E-mail:* ${email}
-💼 *Interesse:* ${service}
+📞 *Telefone:* ${phone}${emailText}
+💼 *Assunto:* ${service}
 
 📝 *Mensagem:*
 ${message}`;
