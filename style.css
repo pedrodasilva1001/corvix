@@ -1206,6 +1206,77 @@ a {
 }
 
 /* ==========================================================================
+   FAQ Accordion Section
+   ========================================================================== */
+.faq-section {
+  padding: 100px 0;
+  background-color: var(--color-blue-dark-1);
+}
+
+.faq-container {
+  max-width: 800px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.faq-item {
+  background-color: var(--glass-bg);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  overflow: hidden;
+  transition: var(--transition-smooth);
+}
+
+.faq-item:hover {
+  border-color: rgba(0, 210, 255, 0.3);
+}
+
+.faq-question {
+  width: 100%;
+  padding: 1.25rem 1.5rem;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  font-family: var(--font-headings);
+  font-size: 1.05rem;
+  font-weight: 600;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: var(--transition-smooth);
+}
+
+.faq-question i {
+  color: var(--color-accent);
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-question i {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.35s ease-out, padding 0.35s ease-out;
+  padding: 0 1.5rem;
+}
+
+.faq-item.active .faq-answer {
+  padding: 0 1.5rem 1.25rem 1.5rem;
+}
+
+.faq-answer p {
+  color: var(--color-gray-light);
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+/* ==========================================================================
    Modal de Detalhes do Serviço
    ========================================================================== */
 .service-modal {

@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suporte 24/7 & Monitoramento | Corvix Security</title>
+  <meta name="description" content="Monitoramento ativo ininterrupto, resposta a incidentes de emergência e suporte 24/7 para operações críticas." />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <header class="header-main">
+    <nav class="nav-container">
+      <a href="index.html" class="logo">
+        <img src="sitefoto.png" alt="Corvix Security Logo" class="logo-img" onerror="this.style.display='none'; document.getElementById('logo-text').style.display='block';" />
+        <span id="logo-text" class="logo-text-fallback" style="display: none;">CORVIX <span>Security</span></span>
+      </a>
+
+      <ul class="nav-menu">
+        <li><a href="index.html#home" class="nav-link">Home</a></li>
+        <li><a href="index.html#servicos" class="nav-link active">Serviços</a></li>
+        <li><a href="index.html#sobre" class="nav-link">Sobre Nós</a></li>
+        <li><a href="index.html#pacotes" class="nav-link">Pacotes</a></li>
+        <li><a href="index.html#contato" class="nav-link btn-nav">Fale Conosco</a></li>
+        <li><button id="theme-toggle" class="theme-toggle-btn" aria-label="Alterar Tema"><i class="fa-solid fa-sun"></i></button></li>
+      </ul>
+
+      <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Abrir Menu">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </nav>
+  </header>
+
+  <div class="mobile-menu" id="mobile-menu">
+    <ul class="mobile-menu-list">
+      <li><a href="index.html#home" class="mobile-link">Home</a></li>
+      <li><a href="index.html#servicos" class="mobile-link">Serviços</a></li>
+      <li><a href="index.html#sobre" class="mobile-link">Sobre Nós</a></li>
+      <li><a href="index.html#pacotes" class="mobile-link">Pacotes</a></li>
+      <li><a href="index.html#contato" class="mobile-link btn-mobile-nav">Fale Conosco</a></li>
+      <li><button id="theme-toggle-mobile" class="theme-toggle-btn" aria-label="Alterar Tema"><i class="fa-solid fa-sun"></i></button></li>
+    </ul>
+  </div>
+
+  <section class="hero-section" style="min-height: 60vh; padding-top: 140px; padding-bottom: 60px;">
+    <div class="hero-container">
+      <div class="hero-content">
+        <span class="hero-badge"><i class="fa-solid fa-headset"></i> Operação Contínua</span>
+        <h1 class="hero-title">Suporte & Monitoramento 24/7</h1>
+        <p class="hero-subtitle">
+          Plantão contínuo e monitoramento preventivo ininterrupto para empresas com operação crítica que não podem parar.
+        </p>
+        <div class="hero-actions">
+          <a href="https://wa.me/5519995347558?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20uma%20proposta%20para%20Suporte%2024%2F7" target="_blank" class="btn btn-primary"><i class="fa-brands fa-whatsapp"></i> Atendimento Prioritário</a>
+          <a href="#detalhes" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Conhecer Plantão</a>
+        </div>
+      </div>
+      <div class="hero-image-wrapper">
+        <div class="hero-image-card">
+          <img src="sitefoto.png" alt="Suporte 24/7 Corvix" class="hero-img" onerror="this.style.display='none';" />
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="detalhes" class="services-section">
+    <div class="section-container">
+      <div class="section-header">
+        <span class="section-tag">Alta Disponibilidade</span>
+        <h2 class="section-title">Proteção e Vigilância Tecnológica Ininterrupta</h2>
+        <p class="section-description">
+          Analisamos métricas de servidores, redes e bancos de dados em tempo real para agir proativamente antes que uma falha afete sua operação.
+        </p>
+      </div>
+
+      <div class="services-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-clock"></i></div>
+          <h3>Plantão Telefônico de Emergência</h3>
+          <p>Linha direta com engenheiros de TI 24 horas por dia, 7 dias por semana, incluindo feriados e finais de semana.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-chart-area"></i></div>
+          <h3>Monitoramento de Servidores & Uptime</h3>
+          <p>Sensores remotos monitorando consumo de memória, disco, processamento e disponibilidade de links de internet.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-bolt"></i></div>
+          <h3>Resposta Rápida a Incidentes</h3>
+          <p>SLA de resposta emergencial prioritário para restabelecimento imediato de sistemas críticos travados.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-temperature-full"></i></div>
+          <h3>Telemetria de Ambiente Físico</h3>
+          <p>Monitoramento de oscilações de energia e temperatura em salas de servidores e CPDs.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-shield"></i></div>
+          <h3>Prevenção Proativa de Travamentos</h3>
+          <p>Alertas automáticos acionados ao atingir limiares críticos, permitindo correção antes da parada do sistema.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon-wrapper"><i class="fa-solid fa-file-contract"></i></div>
+          <h3>Relatórios Mensais de Desempenho</h3>
+          <p>Transparência total com envio de relatórios de incidentes resolvidos e indicador de disponibilidade (Uptime).</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about-section">
+    <div class="section-container">
+      <div class="section-header" style="text-align: center;">
+        <span class="section-tag">Dúvidas Frequentes</span>
+        <h2 class="section-title">Perguntas sobre Suporte 24/7</h2>
+      </div>
+
+      <div style="max-width: 800px; margin: 0 auto;">
+        <div class="faq-item">
+          <button class="faq-question">Quais tipos de empresas precisam do plano 24/7? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Hospitais, clínicas, indústrias em regime de turnos, e-commerces, empresas de logística e hotéis que operam sem interrupção.</p></div>
+        </div>
+        <div class="faq-item">
+          <button class="faq-question">Qual o tempo garantido de atendimento de emergência? <i class="fa-solid fa-chevron-down"></i></button>
+          <div class="faq-answer"><p>Nosso contrato 24/7 prevê início de atendimento em até 15 minutos para incidentes de severidade alta/crítica.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact-section">
+    <div class="section-container contact-wrapper" style="grid-template-columns: 1fr;">
+      <div class="contact-form-panel" style="max-width: 700px; margin: 0 auto; width: 100%;">
+        <h3>Contratar Suporte 24/7</h3>
+        <form onsubmit="sendMessage(event)" class="contact-form">
+          <div class="form-group">
+            <label for="name">Nome Completo</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-user"></i>
+              <input type="text" id="name" placeholder="Seu nome ou da sua empresa" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">E-mail de Contato</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-envelope"></i>
+              <input type="email" id="email" placeholder="exemplo@empresa.com" required />
+            </div>
+          </div>
+          <input type="hidden" id="service-select" value="Suporte 24/7" />
+          <div class="form-group">
+            <label for="message">Mensagem / Detalhes</label>
+            <div class="input-wrapper">
+              <i class="fa-solid fa-message"></i>
+              <textarea id="message" required>Olá, gostaria de solicitar uma proposta para o plano de Suporte e Monitoramento 24/7 para a minha empresa.</textarea>
+            </div>
+          </div>
+          <button type="submit" class="btn btn-primary btn-submit">
+            <i class="fa-brands fa-whatsapp"></i> Falar com Plantão de Atendimento
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer-main">
+    <div class="footer-bottom">
+      <p>© 2026 Corvix Security. Todos os direitos reservados. | <a href="index.html">Voltar para a Home</a></p>
+      <p class="domain-text">corvix.tec.br</p>
+    </div>
+  </footer>
+
+  <a href="https://wa.me/5519995347558" target="_blank" class="whatsapp-floating-btn" aria-label="Conversar no WhatsApp">
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

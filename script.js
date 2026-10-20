@@ -10,7 +10,41 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollSpy();
   initModalListeners();
   initFormMessagePrefill();
+  initFaqAccordion();
 });
+
+/* ==========================================================================
+   FAQ Accordion
+   ========================================================================== */
+function initFaqAccordion() {
+  const faqItems = document.querySelectorAll(".faq-item");
+
+  faqItems.forEach((item) => {
+    const questionBtn = item.querySelector(".faq-question");
+    const answer = item.querySelector(".faq-answer");
+
+    if (questionBtn && answer) {
+      questionBtn.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+
+        // Close all faq items
+        faqItems.forEach((otherItem) => {
+          otherItem.classList.remove("active");
+          const otherAnswer = otherItem.querySelector(".faq-answer");
+          if (otherAnswer) {
+            otherAnswer.style.maxHeight = null;
+          }
+        });
+
+        // Toggle clicked item
+        if (!isActive) {
+          item.classList.add("active");
+          answer.style.maxHeight = answer.scrollHeight + "px";
+        }
+      });
+    }
+  });
+}
 
 /* ==========================================================================
    Menu Mobile
