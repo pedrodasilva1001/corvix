@@ -58,7 +58,7 @@ function initMobileMenu() {
     // Abre/fecha o menu
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.toggle("active");
-      
+
       // Altera o ícone (hambúrguer <=> X)
       const icon = menuBtn.querySelector("i");
       if (mobileMenu.classList.contains("active")) {
@@ -97,7 +97,7 @@ function initTypewriter() {
 
   function type() {
     const currentWord = words[wordIndex];
-    
+
     if (isDeleting) {
       target.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
@@ -130,7 +130,7 @@ function initTypewriter() {
    ========================================================================== */
 function initHeaderScroll() {
   const header = document.querySelector(".header-main");
-  
+
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       header.classList.add("header-scrolled");
@@ -149,7 +149,7 @@ function initScrollSpy() {
 
   window.addEventListener("scroll", () => {
     let current = "";
-    
+
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
       const sectionHeight = section.clientHeight;
@@ -178,7 +178,7 @@ const defaultMessages = {
   "Segurança de Dados": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Segurança de Dados. Preciso implementar rotinas de backup e segurança da informação.",
   "Consultoria": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Consultoria. Preciso de orientação estratégica e adequação em TI para a minha empresa.",
   "Suporte 24/7": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Suporte 24/7. Tenho operações críticas e preciso de monitoramento constante.",
-  
+
   // Pacotes
   "Pacote Segurança": "Olá, Corvix! Gostaria de contratar o Pacote Segurança. Preciso de análise de vulnerabilidades, hardening e segurança antivírus corporativo.",
   "Pacote Internet/Conexão": "Olá, Corvix! Gostaria de contratar o Pacote Internet/Conexão. Preciso de configuração de roteadores corporativos, Wi-Fi seguro e VPN.",
@@ -212,12 +212,12 @@ function prefillPackage(packageName) {
 function initFormMessagePrefill() {
   const serviceSelect = document.getElementById("service-select");
   const messageArea = document.getElementById("message");
-  
+
   if (serviceSelect && messageArea) {
     serviceSelect.addEventListener("change", (e) => {
       const selectedValue = e.target.value;
       const currentMsg = messageArea.value.trim();
-      
+
       // Só substitui a mensagem se estiver vazia ou se contiver uma das mensagens padrão
       const isDefault = currentMsg === "" || Object.values(defaultMessages).includes(currentMsg);
       if (isDefault && defaultMessages[selectedValue]) {
@@ -233,10 +233,16 @@ function initFormMessagePrefill() {
 function sendMessage(event) {
   event.preventDefault();
 
-  const name = document.getElementById("name").value.trim();
-  const email = document.getElementById("email").value.trim();
-  const service = document.getElementById("service-select").value;
-  const message = document.getElementById("message").value.trim();
+  const form = event.target;
+  const nameEl = form ? form.querySelector("#name") || document.getElementById("name") : document.getElementById("name");
+  const emailEl = form ? form.querySelector("#email") || document.getElementById("email") : document.getElementById("email");
+  const serviceEl = form ? form.querySelector("#service-select") || document.getElementById("service-select") : document.getElementById("service-select");
+  const messageEl = form ? form.querySelector("#message") || document.getElementById("message") : document.getElementById("message");
+
+  const name = nameEl ? nameEl.value.trim() : "";
+  const email = emailEl ? emailEl.value.trim() : "";
+  const service = serviceEl ? serviceEl.value : "";
+  const message = messageEl ? messageEl.value.trim() : "";
 
   // Validação básica
   if (!name || !email || !service || !message) {
@@ -244,7 +250,7 @@ function sendMessage(event) {
     return;
   }
 
-  // Número do WhatsApp (API Internacional)
+  // Número do WhatsApp Oficial
   const phoneNumber = "5519995347558";
 
   // Formatação profissional da mensagem
@@ -257,9 +263,9 @@ function sendMessage(event) {
 📝 *Mensagem:*
 ${message}`;
 
-  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
+  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(text)}`;
 
-  // Abre em nova janela/aba
+  // Abre em nova janela/aba ou direciona ao app do WhatsApp
   window.open(url, "_blank");
 }
 
@@ -376,12 +382,12 @@ window.openServiceModal = function(serviceKey) {
       </div>
       <h3>${data.title}</h3>
       <p>${data.description}</p>
-      
+
       <h4>O que está incluído no escopo:</h4>
       <ul class="modal-bullets">
         ${bulletsHTML}
       </ul>
-      
+
       <button class="btn btn-primary" onclick="selectServiceFromModal('${data.prefill}')">
         <i class="fa-brands fa-whatsapp"></i> Solicitar este Serviço
       </button>
@@ -430,7 +436,7 @@ function closeModal() {
 window.selectServiceFromModal = function(servicePrefillValue) {
   closeModal();
   prefillService(servicePrefillValue);
-  
+
   // Rola até o contato
   const contactSection = document.getElementById("contato");
   if (contactSection) {
