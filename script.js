@@ -1,5 +1,5 @@
 // ==========================================================================
-// Corvix Security - Comportamento e Interatividade
+// Corvix Security - Comportamento, Diagnóstico Ao Vivo e Interatividade
 // ==========================================================================
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -10,48 +10,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initScrollSpy();
   initModalListeners();
   initFormMessagePrefill();
-  initFaqAccordion();
-
-  // Check if a prefill option was saved from subpage navigation
-  const savedPrefill = localStorage.getItem("prefill");
-  if (savedPrefill) {
-    prefillService(savedPrefill);
-    localStorage.removeItem("prefill");
-  }
 });
-
-/* ==========================================================================
-   FAQ Accordion
-   ========================================================================== */
-function initFaqAccordion() {
-  const faqItems = document.querySelectorAll(".faq-item");
-
-  faqItems.forEach((item) => {
-    const questionBtn = item.querySelector(".faq-question");
-    const answer = item.querySelector(".faq-answer");
-
-    if (questionBtn && answer) {
-      questionBtn.addEventListener("click", () => {
-        const isActive = item.classList.contains("active");
-
-        // Close all faq items
-        faqItems.forEach((otherItem) => {
-          otherItem.classList.remove("active");
-          const otherAnswer = otherItem.querySelector(".faq-answer");
-          if (otherAnswer) {
-            otherAnswer.style.maxHeight = null;
-          }
-        });
-
-        // Toggle clicked item
-        if (!isActive) {
-          item.classList.add("active");
-          answer.style.maxHeight = answer.scrollHeight + "px";
-        }
-      });
-    }
-  });
-}
 
 /* ==========================================================================
    Menu Mobile
@@ -65,7 +24,7 @@ function initMobileMenu() {
     // Abre/fecha o menu
     menuBtn.addEventListener("click", () => {
       mobileMenu.classList.toggle("active");
-
+      
       // Altera o ícone (hambúrguer <=> X)
       const icon = menuBtn.querySelector("i");
       if (mobileMenu.classList.contains("active")) {
@@ -104,7 +63,7 @@ function initTypewriter() {
 
   function type() {
     const currentWord = words[wordIndex];
-
+    
     if (isDeleting) {
       target.textContent = currentWord.substring(0, charIndex - 1);
       charIndex--;
@@ -137,7 +96,7 @@ function initTypewriter() {
    ========================================================================== */
 function initHeaderScroll() {
   const header = document.querySelector(".header-main");
-
+  
   window.addEventListener("scroll", () => {
     if (window.scrollY > 50) {
       header.classList.add("header-scrolled");
@@ -156,10 +115,9 @@ function initScrollSpy() {
 
   window.addEventListener("scroll", () => {
     let current = "";
-
+    
     sections.forEach(section => {
       const sectionTop = section.offsetTop;
-      const sectionHeight = section.clientHeight;
       if (window.scrollY >= sectionTop - 120) {
         current = section.getAttribute("id");
       }
@@ -178,20 +136,23 @@ function initScrollSpy() {
    Funções de Autofill (Preenchimento Rápido do Formulário)
    ========================================================================== */
 const defaultMessages = {
-  // Serviços
-  "Suporte de TI": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Suporte de TI. Preciso de suporte técnico e manutenção para a minha empresa.",
-  "Redes": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Redes. Preciso otimizar e estruturar a rede de internet da minha empresa.",
-  "Cybersecurity": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Cybersecurity. Preciso proteger a minha empresa contra ameaças digitais e invasões.",
-  "Segurança de Dados": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Segurança de Dados. Preciso implementar rotinas de backup e segurança da informação.",
-  "Consultoria": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Consultoria. Preciso de orientação estratégica e adequação em TI para a minha empresa.",
-  "Suporte 24/7": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Suporte 24/7. Tenho operações críticas e preciso de monitoramento constante.",
-  "Trabalhe Conosco": "Estamos contratando! Tem interesse?",
+  // Atendimento Humano & Diagnóstico
+  "Reunião/Ligação de Apresentação (10 min)": "Olá, equipe Corvix! Hoje em dia há IA e robôs demais no mercado, e acredito que o contato humano faz toda a diferença. Podemos agendar uma rápida ligação ou reunião de 10 minutos para vocês se apresentarem e conversarmos sobre a TI/Segurança da minha empresa?",
+  "Diagnóstico de Domínio & Rede": "Olá, Corvix! Gostaria de receber um diagnóstico técnico do domínio e da infraestrutura de rede da minha empresa, e agendar uma rápida conversa com um especialista humano.",
 
+  // Serviços
+  "Suporte de TI": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Suporte de TI. Podemos agendar uma rápida ligação para vocês se apresentarem e entenderem a estrutura da minha empresa?",
+  "Redes": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Redes. Preciso otimizar e estruturar a rede da minha empresa e gostaria de conversar diretamente com um especialista.",
+  "Cybersecurity": "Olá, Corvix! Gostaria de mais informações sobre o serviço de Cybersecurity. Preciso proteger minha empresa contra ameaças digitais e gostaria de agendar uma breve reunião de apresentação.",
+  "Segurança de Dados": "Olá, Corvix! Gostaria de mais informações sobre Segurança de Dados e Backups corporativos. Podemos conversar rapidamente por ligação ou reunião?",
+  "Consultoria": "Olá, Corvix! Gostaria de mais informações sobre Consultoria de TI e adequação LGPD. Podemos agendar uma rápida ligação de apresentação?",
+  "Suporte 24/7": "Olá, Corvix! Tenho operações críticas que precisam de Suporte 24/7 e gostaria de falar diretamente com um especialista humano para conhecer a Corvix.",
+  
   // Pacotes
-  "Pacote Segurança": "Olá, Corvix! Gostaria de contratar o Pacote Segurança. Preciso de análise de vulnerabilidades, hardening e segurança antivírus corporativo.",
-  "Pacote Internet/Conexão": "Olá, Corvix! Gostaria de contratar o Pacote Internet/Conexão. Preciso de configuração de roteadores corporativos, Wi-Fi seguro e VPN.",
-  "Pacote Suporte/Consultoria": "Olá, Corvix! Gostaria de contratar o Pacote Suporte/Consultoria. Preciso de suporte remoto ilimitado e consultoria estratégica em TI.",
-  "Pacote Proteção Total": "Olá, Corvix! Gostaria de contratar o Pacote Proteção Total. Preciso do escopo completo de suporte, redes seguras, backups em nuvem e monitoramento 24/7."
+  "Pacote Segurança": "Olá, Corvix! Tenho interesse no Pacote Segurança (análise de vulnerabilidades, hardening e firewall). Podemos agendar uma rápida ligação ou reunião para vocês se apresentarem?",
+  "Pacote Internet/Conexão": "Olá, Corvix! Tenho interesse no Pacote Internet/Conexão (roteadores corporativos, Wi-Fi seguro e VPN). Podemos conversar rapidamente com um especialista?",
+  "Pacote Suporte/Consultoria": "Olá, Corvix! Tenho interesse no Pacote Suporte/Consultoria. Como o contato humano é essencial para nós, podemos agendar uma rápida ligação de apresentação?",
+  "Pacote Proteção Total": "Olá, Corvix! Tenho interesse no Pacote Proteção Total (suporte 24/7, redes seguras e backups em nuvem). Podemos agendar uma reunião rápida de apresentação?"
 };
 
 function prefillService(serviceName) {
@@ -216,16 +177,22 @@ function prefillPackage(packageName) {
   }
 }
 
+window.prefillHumanMeeting = function() {
+  prefillService("Reunião/Ligação de Apresentação (10 min)");
+  const checkbox = document.getElementById("prefer-human-call");
+  if (checkbox) checkbox.checked = true;
+};
+
 // Escuta a mudança manual no dropdown do formulário
 function initFormMessagePrefill() {
   const serviceSelect = document.getElementById("service-select");
   const messageArea = document.getElementById("message");
-
+  
   if (serviceSelect && messageArea) {
     serviceSelect.addEventListener("change", (e) => {
       const selectedValue = e.target.value;
       const currentMsg = messageArea.value.trim();
-
+      
       // Só substitui a mensagem se estiver vazia ou se contiver uma das mensagens padrão
       const isDefault = currentMsg === "" || Object.values(defaultMessages).includes(currentMsg);
       if (isDefault && defaultMessages[selectedValue]) {
@@ -236,49 +203,364 @@ function initFormMessagePrefill() {
 }
 
 /* ==========================================================================
-   Envio de Mensagem de Contato via WhatsApp
+   Persistência Local de Leads & Envio via WhatsApp
    ========================================================================== */
+function saveLeadRecord(leadData) {
+  try {
+    const existing = JSON.parse(localStorage.getItem("corvix_captured_leads") || "[]");
+    existing.unshift({
+      ...leadData,
+      timestamp: new Date().toISOString(),
+      sourceUrl: window.location.href
+    });
+    localStorage.setItem("corvix_captured_leads", JSON.stringify(existing.slice(0, 200)));
+  } catch (err) {
+    console.warn("Aviso ao salvar lead localmente:", err);
+  }
+}
+
 function sendMessage(event) {
   event.preventDefault();
 
-  const form = event.target;
-  const nameEl = form ? form.querySelector("#name") || document.getElementById("name") : document.getElementById("name");
-  const phoneEl = form ? form.querySelector("#phone") || document.getElementById("phone") : document.getElementById("phone");
-  const emailEl = form ? form.querySelector("#email") || document.getElementById("email") : document.getElementById("email");
-  const serviceEl = form ? form.querySelector("#service-select") || document.getElementById("service-select") : document.getElementById("service-select");
-  const messageEl = form ? form.querySelector("#message") || document.getElementById("message") : document.getElementById("message");
+  const name = document.getElementById("name").value.trim();
+  const email = document.getElementById("email").value.trim();
+  const service = document.getElementById("service-select").value;
+  const message = document.getElementById("message").value.trim();
+  const preferCallEl = document.getElementById("prefer-human-call");
+  const preferCall = preferCallEl ? preferCallEl.checked : true;
 
-  const name = nameEl ? nameEl.value.trim() : "";
-  const phone = phoneEl ? phoneEl.value.trim() : "";
-  const email = emailEl ? emailEl.value.trim() : "";
-  const service = serviceEl ? serviceEl.value : "";
-  const message = messageEl ? messageEl.value.trim() : "";
-
-  // Validação básica (Telefone obrigatório, E-mail opcional)
-  if (!name || !phone || !service || !message) {
-    alert("Por favor, preencha o seu nome, telefone, assunto de interesse e mensagem.");
+  // Validação básica
+  if (!name || !email || !service || !message) {
+    alert("Por favor, preencha todos os campos do formulário.");
     return;
   }
 
-  // Número do WhatsApp Oficial
+  // Salva o lead antes de abrir o WhatsApp para evitar perda de conversão
+  saveLeadRecord({
+    type: "contact_form",
+    name,
+    email,
+    service,
+    preferHumanCall: preferCall,
+    message
+  });
+
+  // Número do WhatsApp (API Internacional)
   const phoneNumber = "5519995347558";
 
+  const callTag = preferCall
+    ? "✅ *Preferência:* Agendar rápida ligação/reunião humana de apresentação (10 min)\n"
+    : "";
+
   // Formatação profissional da mensagem
-  const emailText = email ? `\n✉️ *E-mail:* ${email}` : "";
   const text = `*CORVIX SECURITY - NOVO CONTATO DO SITE*
 
-👤 *Nome:* ${name}
-📞 *Telefone:* ${phone}${emailText}
-💼 *Assunto:* ${service}
-
+👤 *Nome/Empresa:* ${name}
+✉️ *E-mail:* ${email}
+💼 *Interesse:* ${service}
+${callTag}
 📝 *Mensagem:*
 ${message}`;
 
-  const url = `https://api.whatsapp.com/send?phone=${phoneNumber}&text=${encodeURIComponent(text)}`;
+  const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`;
 
-  // Abre em nova janela/aba ou direciona ao app do WhatsApp
+  // Abre em nova janela/aba
   window.open(url, "_blank");
 }
+
+/* ==========================================================================
+   Scanner Ao Vivo de Segurança de Domínio & Rede (DNS-over-HTTPS)
+   ========================================================================== */
+let lastDiagnosticResult = null;
+
+function sanitizeDomainInput(raw) {
+  let cleaned = (raw || "").trim().toLowerCase();
+  cleaned = cleaned.replace(/^https?:\/\//i, "");
+  cleaned = cleaned.replace(/^www\./i, "");
+  cleaned = cleaned.split("/")[0].split("?")[0].split("#")[0];
+  return cleaned;
+}
+
+async function queryGoogleDns(name, type = "TXT") {
+  const url = `https://dns.google/resolve?name=${encodeURIComponent(name)}&type=${encodeURIComponent(type)}`;
+  const response = await fetch(url, { headers: { Accept: "application/dns-json" } });
+  if (!response.ok) {
+    throw new Error(`Falha na consulta DNS (${response.status})`);
+  }
+  return response.json();
+}
+
+window.runDomainDiagnostic = async function(event) {
+  event.preventDefault();
+
+  const inputEl = document.getElementById("scanner-domain-input");
+  const submitBtn = document.getElementById("scanner-submit-btn");
+  const resultsBox = document.getElementById("scanner-results");
+  const checksGrid = document.getElementById("scanner-checks-grid");
+
+  const domain = sanitizeDomainInput(inputEl ? inputEl.value : "");
+  if (!domain || !domain.includes(".") || domain.length < 4) {
+    alert("Por favor, digite um domínio corporativo válido (ex: suaempresa.com.br).");
+    return;
+  }
+
+  if (submitBtn) {
+    submitBtn.disabled = true;
+    submitBtn.innerHTML = `<i class="fa-solid fa-spinner fa-spin"></i> Auditando DNS & Segurança...`;
+  }
+
+  try {
+    const [txtRes, dmarcRes, mxRes, nsRes, caaRes] = await Promise.all([
+      queryGoogleDns(domain, "TXT").catch(() => ({})),
+      queryGoogleDns(`_dmarc.${domain}`, "TXT").catch(() => ({})),
+      queryGoogleDns(domain, "MX").catch(() => ({})),
+      queryGoogleDns(domain, "NS").catch(() => ({})),
+      queryGoogleDns(domain, "CAA").catch(() => ({}))
+    ]);
+
+    const txtRecords = (txtRes.Answer || []).map(a => (a.data || "").replace(/^"|"$/g, ""));
+    const dmarcRecords = (dmarcRes.Answer || []).map(a => (a.data || "").replace(/^"|"$/g, ""));
+    const mxRecords = (mxRes.Answer || []).map(a => a.data || "");
+    const nsRecords = (nsRes.Answer || []).map(a => a.data || "");
+    const caaRecords = (caaRes.Answer || []).map(a => a.data || "");
+
+    // 1. Análise SPF
+    const spfRecord = txtRecords.find(r => r.toLowerCase().includes("v=spf1"));
+    let spfStatus = "fail";
+    let spfLabel = "Ausente / Crítico";
+    let spfDesc = "Sem registro SPF. Terceiros podem disparar e-mails falsos usando o nome do seu domínio.";
+    let score = 20;
+
+    if (spfRecord) {
+      if (spfRecord.includes("-all")) {
+        spfStatus = "pass";
+        spfLabel = "Blindado (-all)";
+        spfDesc = "Política SPF restritiva ativa. Servidores não autorizados são bloqueados.";
+        score += 25;
+      } else if (spfRecord.includes("~all")) {
+        spfStatus = "warn";
+        spfLabel = "Parcial (~all)";
+        spfDesc = "SPF em modo SoftFail (~all). Recomendamos endurecer a política junto ao DMARC.";
+        score += 15;
+      } else {
+        spfStatus = "warn";
+        spfLabel = "Permissivo";
+        spfDesc = "SPF encontrado, mas sem regra clara de bloqueio final (-all).";
+        score += 8;
+      }
+    }
+
+    // 2. Análise DMARC
+    const dmarcRecord = dmarcRecords.find(r => r.toLowerCase().includes("v=dmarc1"));
+    let dmarcStatus = "fail";
+    let dmarcLabel = "Desprotegido";
+    let dmarcDesc = "Sem DMARC ativo. Sua empresa está vulnerável a ataques de phishing e falsificação de boletos/e-mails (Spoofing).";
+
+    if (dmarcRecord) {
+      const lowerDmarc = dmarcRecord.toLowerCase();
+      if (lowerDmarc.includes("p=reject")) {
+        dmarcStatus = "pass";
+        dmarcLabel = "Máxima (p=reject)";
+        dmarcDesc = "Política DMARC de bloqueio total configurada corretamente.";
+        score += 30;
+      } else if (lowerDmarc.includes("p=quarantine")) {
+        dmarcStatus = "pass";
+        dmarcLabel = "Ativo (Quarentena)";
+        dmarcDesc = "E-mails suspeitos em nome da empresa são enviados para quarentena.";
+        score += 24;
+      } else {
+        dmarcStatus = "warn";
+        dmarcLabel = "Apenas Monitorando (p=none)";
+        dmarcDesc = "O DMARC existe, mas está em modo 'p=none' (não bloqueia ataques reais de falsificação).";
+        score += 10;
+      }
+    }
+
+    // 3. Análise Servidor de E-mail (MX)
+    let mxStatus = "warn";
+    let mxLabel = "Não Identificado";
+    let mxDesc = "Nenhum servidor de e-mail corporativo (MX) detectado neste domínio.";
+    let providerName = "Não detectado";
+
+    if (mxRecords.length > 0) {
+      const joinedMx = mxRecords.join(" ").toLowerCase();
+      if (joinedMx.includes("google") || joinedMx.includes("googlemail")) {
+        providerName = "Google Workspace";
+      } else if (joinedMx.includes("outlook") || joinedMx.includes("protection.outlook")) {
+        providerName = "Microsoft 365";
+      } else if (joinedMx.includes("locaweb")) {
+        providerName = "Locaweb";
+      } else if (joinedMx.includes("kinghost")) {
+        providerName = "KingHost";
+      } else if (joinedMx.includes("titan") || joinedMx.includes("hostgator")) {
+        providerName = "HostGator / Titan";
+      } else if (joinedMx.includes("zoho")) {
+        providerName = "Zoho Mail";
+      } else {
+        providerName = "Servidor Dedicado / Próprio";
+      }
+      mxStatus = "pass";
+      mxLabel = providerName;
+      mxDesc = `${mxRecords.length} servidor(es) MX ativo(s) (${providerName}). Importante auditar MFA e políticas de acesso.`;
+      score += 15;
+    }
+
+    // 4. Resiliência DNS & Certificados (NS + CAA)
+    let dnsStatus = "warn";
+    let dnsLabel = "Padrão (Sem CAA)";
+    let dnsDesc = `DNS ativo com ${nsRecords.length || 1} nameserver(s), mas sem trava CAA contra emissão indevida de certificados SSL.`;
+
+    if (caaRecords.length > 0 && nsRecords.length >= 2) {
+      dnsStatus = "pass";
+      dnsLabel = "Blindado (NS + CAA)";
+      dnsDesc = "Redundância de DNS ativa e restrição de Autoridade Certificadora (CAA) configurada.";
+      score += 10;
+    } else if (nsRecords.length >= 2) {
+      score += 5;
+    }
+
+    score = Math.min(100, Math.max(15, score));
+
+    // Define classificação de risco
+    const scoreCircle = document.getElementById("scanner-score-circle");
+    const scoreValue = document.getElementById("scanner-score-value");
+    const riskBadge = document.getElementById("scanner-risk-badge");
+    const domainTitle = document.getElementById("scanner-domain-title");
+    const execSummary = document.getElementById("scanner-executive-summary");
+
+    scoreCircle.className = "score-circle";
+    riskBadge.className = "score-badge";
+
+    let riskLevelText = "";
+    if (score < 60) {
+      scoreCircle.classList.add("risk-high");
+      riskBadge.classList.add("badge-danger");
+      riskLevelText = "Risco Elevado de Exposição";
+      execSummary.textContent = `Identificamos brechas importantes na autenticação de domínio de ${domain} que permitem falsificação de identidade corporativa ou instabilidade.`;
+    } else if (score < 85) {
+      scoreCircle.classList.add("risk-medium");
+      riskBadge.classList.add("badge-warning");
+      riskLevelText = "Proteção Parcial — Requer Ajustes";
+      execSummary.textContent = `O domínio ${domain} possui configuração básica (${providerName}), mas ainda apresenta pontos abertos que exigem hardening.`;
+    } else {
+      scoreCircle.classList.add("risk-low");
+      riskBadge.classList.add("badge-ok");
+      riskLevelText = "Boa Maturidade Externa";
+      execSummary.textContent = `Parabéns! O perímetro público de DNS/E-mail de ${domain} está bem configurado. Recomendamos auditoria interna de rede, firewall e backups.`;
+    }
+
+    scoreValue.textContent = score;
+    riskBadge.textContent = riskLevelText;
+    domainTitle.textContent = `Diagnóstico Técnico: ${domain}`;
+
+    const checks = [
+      { icon: "fa-envelope-circle-check", title: "Proteção SPF", status: spfStatus, label: spfLabel, desc: spfDesc },
+      { icon: "fa-user-shield", title: "Blindagem DMARC", status: dmarcStatus, label: dmarcLabel, desc: dmarcDesc },
+      { icon: "fa-server", title: "Infraestrutura E-mail", status: mxStatus, label: mxLabel, desc: mxDesc },
+      { icon: "fa-network-wired", title: "Resiliência DNS & SSL", status: dnsStatus, label: dnsLabel, desc: dnsDesc }
+    ];
+
+    checksGrid.innerHTML = checks.map(c => `
+      <div class="scanner-check-item">
+        <div class="scanner-check-top">
+          <h4><i class="fa-solid ${c.icon}"></i> ${c.title}</h4>
+          <span class="check-status-pill pill-${c.status}">${c.label}</span>
+        </div>
+        <p>${c.desc}</p>
+      </div>
+    `).join("");
+
+    lastDiagnosticResult = {
+      domain,
+      score,
+      riskLevelText,
+      spfLabel,
+      dmarcLabel,
+      providerName,
+      dnsLabel
+    };
+
+    saveLeadRecord({
+      type: "domain_scanner",
+      domain,
+      score,
+      riskLevelText,
+      spfLabel,
+      dmarcLabel,
+      providerName
+    });
+
+    resultsBox.style.display = "block";
+  } catch (err) {
+    alert("Não foi possível consultar o DNS deste domínio no momento. Verifique se digitou corretamente (ex: empresa.com.br).");
+  } finally {
+    if (submitBtn) {
+      submitBtn.disabled = false;
+      submitBtn.innerHTML = `<i class="fa-solid fa-magnifying-glass-chart"></i> Analisar Agora`;
+    }
+  }
+};
+
+window.sendDiagnosticToWhatsApp = function() {
+  const phoneNumber = "5519995347558";
+  const d = lastDiagnosticResult || {
+    domain: "minha empresa",
+    score: "--",
+    riskLevelText: "Pendente",
+    spfLabel: "-",
+    dmarcLabel: "-"
+  };
+
+  const text = `Olá, equipe Corvix! Fiz o diagnóstico rápido do domínio *${d.domain}* no site de vocês:
+
+📊 *Score de Segurança Externa:* ${d.score}/100 (${d.riskLevelText})
+🛡️ *SPF:* ${d.spfLabel} | *DMARC:* ${d.dmarcLabel}
+
+Como hoje em dia existe IA demais e o contato humano faz toda a diferença, *podemos agendar uma rápida ligação ou reunião de 10 minutos* para vocês se apresentarem e me mostrarem como blindar esses pontos?`;
+
+  window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, "_blank");
+};
+
+/* ==========================================================================
+   Widget Assistente Consultivo Corvix (Human-First)
+   ========================================================================== */
+window.toggleAssistantPopup = function(show) {
+  const popup = document.getElementById("corvix-assistant-popup");
+  if (!popup) return;
+  if (typeof show === "boolean") {
+    popup.classList.toggle("active", show);
+  } else {
+    popup.classList.toggle("active");
+  }
+};
+
+window.quickAssistantAction = function(actionType) {
+  toggleAssistantPopup(false);
+  const phoneNumber = "5519995347558";
+
+  if (actionType === "scanner") {
+    const diagSection = document.getElementById("diagnostico");
+    if (diagSection) {
+      diagSection.scrollIntoView({ behavior: "smooth" });
+      setTimeout(() => {
+        const input = document.getElementById("scanner-domain-input");
+        if (input) input.focus();
+      }, 500);
+    }
+    return;
+  }
+
+  if (actionType === "reuniao") {
+    const text = `Olá, pessoal da Corvix! Vi no site de vocês o convite para conversar diretamente com um especialista. Hoje em dia há IA demais e o contato humano faz a diferença — podemos agendar uma rápida ligação/reunião de 10 min para vocês se apresentarem?`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, "_blank");
+    return;
+  }
+
+  if (actionType === "urgente") {
+    const text = `Olá, Corvix! Preciso de suporte técnico / apoio em redes e segurança para minha empresa e gostaria de falar diretamente com um especialista humano.`;
+    window.open(`https://wa.me/${phoneNumber}?text=${encodeURIComponent(text)}`, "_blank");
+  }
+};
 
 /* ==========================================================================
    Modal de Detalhes dos Serviços
@@ -393,14 +675,14 @@ window.openServiceModal = function(serviceKey) {
       </div>
       <h3>${data.title}</h3>
       <p>${data.description}</p>
-
+      
       <h4>O que está incluído no escopo:</h4>
       <ul class="modal-bullets">
         ${bulletsHTML}
       </ul>
-
+      
       <button class="btn btn-primary" onclick="selectServiceFromModal('${data.prefill}')">
-        <i class="fa-brands fa-whatsapp"></i> Solicitar este Serviço
+        <i class="fa-brands fa-whatsapp"></i> Agendar Conversa sobre este Serviço
       </button>
     `;
 
@@ -447,7 +729,7 @@ function closeModal() {
 window.selectServiceFromModal = function(servicePrefillValue) {
   closeModal();
   prefillService(servicePrefillValue);
-
+  
   // Rola até o contato
   const contactSection = document.getElementById("contato");
   if (contactSection) {

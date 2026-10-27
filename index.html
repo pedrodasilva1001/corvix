@@ -3,8 +3,50 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Corvix Security | Suporte de TI, Redes e Cybersecurity</title>
-  <meta name="description" content="A Corvix Security oferece soluções robustas de Suporte de TI, Redes, Cybersecurity, Segurança de Dados, Consultoria e Suporte 24/7 para empresas que buscam segurança e estabilidade." />
+  <title>Corvix Security | Suporte de TI, Redes Corporativas e Cybersecurity</title>
+  <meta name="description" content="A Corvix Security oferece soluções corporativas de Suporte de TI, Infraestrutura de Redes, Cybersecurity, Segurança de Dados (LGPD/Backup) e Atendimento Humano Especializado 24/7 para empresas." />
+  <meta name="keywords" content="suporte de ti para empresas, segurança de redes, cybersecurity corporativa, consultoria de ti, firewall corporativo, backup em nuvem, suporte ti campinas, suporte ti sp, corvix security" />
+  <meta name="robots" content="index, follow" />
+  <meta name="geo.region" content="BR-SP" />
+  <link rel="canonical" href="https://corvix.tec.br/" />
+
+  <!-- Open Graph / WhatsApp / LinkedIn Preview -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:site_name" content="Corvix Security" />
+  <meta property="og:title" content="Corvix Security | Infraestrutura de Redes, Suporte de TI & Cybersecurity" />
+  <meta property="og:description" content="Blindagem de rede, proteção contra ataques e suporte técnico humano e direto para sua empresa nunca parar. Faça um diagnóstico gratuito do seu domínio." />
+  <meta property="og:url" content="https://corvix.tec.br/" />
+  <meta property="og:image" content="https://corvix.tec.br/sitefoto.png" />
+
+  <!-- Dados Estruturados Schema.org (SEO B2B & Local) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ProfessionalService",
+    "name": "Corvix Security",
+    "url": "https://corvix.tec.br",
+    "logo": "https://corvix.tec.br/sitefoto.png",
+    "image": "https://corvix.tec.br/sitefoto.png",
+    "description": "Empresa especializada em Suporte de TI Corporativo, Engenharia e Segurança de Redes, Cybersecurity, Backup/LGPD e Monitoramento 24/7 com atendimento humano direto.",
+    "telephone": "+55-19-99534-7558",
+    "email": "corvixtech@outlook.com",
+    "areaServed": [
+      { "@type": "State", "name": "São Paulo" },
+      { "@type": "Country", "name": "Brasil" }
+    ],
+    "sameAs": [
+      "https://www.instagram.com/corvix.tec/"
+    ],
+    "knowsAbout": [
+      "Suporte de TI Corporativo",
+      "Infraestrutura e Segurança de Redes",
+      "Cybersecurity e Hardening",
+      "Segurança de Dados e Backup em Nuvem",
+      "Consultoria de TI e Adequação LGPD"
+    ]
+  }
+  </script>
   
   <!-- Fontes do Google -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -31,6 +73,7 @@
       <ul class="nav-menu">
         <li><a href="#home" class="nav-link active">Home</a></li>
         <li><a href="#servicos" class="nav-link">Serviços</a></li>
+        <li><a href="#diagnostico" class="nav-link">Diagnóstico Grátis</a></li>
         <li><a href="#sobre" class="nav-link">Sobre Nós</a></li>
         <li><a href="#pacotes" class="nav-link">Pacotes</a></li>
         <li><a href="#contato" class="nav-link btn-nav">Fale Conosco</a></li>
@@ -49,6 +92,7 @@
     <ul class="mobile-menu-list">
       <li><a href="#home" class="mobile-link">Home</a></li>
       <li><a href="#servicos" class="mobile-link">Serviços</a></li>
+      <li><a href="#diagnostico" class="mobile-link">Diagnóstico Grátis</a></li>
       <li><a href="#sobre" class="mobile-link">Sobre Nós</a></li>
       <li><a href="#pacotes" class="mobile-link">Pacotes</a></li>
       <li><a href="#contato" class="mobile-link btn-mobile-nav">Fale Conosco</a></li>
@@ -61,16 +105,16 @@
     <div class="hero-overlay"></div>
     <div class="hero-container">
       <div class="hero-content">
-        <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Tecnologia & Segurança Digital</span>
+        <span class="hero-badge"><i class="fa-solid fa-shield-halved"></i> Tecnologia & Segurança Digital — Atendimento Humano</span>
         <h1 class="hero-title">
           Infraestrutura de TI & Proteção Contra Ameaças para sua Empresa
         </h1>
         <p class="hero-subtitle">
-          Especialistas em <span id="typewriter" class="typewriter"></span><span class="cursor">|</span> para blindar sua rede, otimizar seus processos e garantir que sua operação nunca pare.
+          Especialistas em <span id="typewriter" class="typewriter"></span><span class="cursor">|</span> para blindar sua rede, otimizar seus processos e garantir que sua operação nunca pare — com contato humano direto, sem robôs.
         </p>
         <div class="hero-actions">
-          <a href="#contato" class="btn btn-primary"><i class="fa-solid fa-paper-plane"></i> Solicitar Análise Grátis</a>
-          <a href="#servicos" class="btn btn-secondary"><i class="fa-solid fa-circle-info"></i> Conhecer Serviços</a>
+          <a href="#diagnostico" class="btn btn-primary"><i class="fa-solid fa-radar"></i> Testar Segurança do Meu Domínio</a>
+          <a href="#contato" class="btn btn-secondary" onclick="prefillHumanMeeting()"><i class="fa-solid fa-phone-volume"></i> Agendar Ligação de 10 min</a>
         </div>
       </div>
       <div class="hero-image-wrapper">
@@ -114,7 +158,7 @@
           </div>
           <h3>Suporte de TI</h3>
           <p>Manutenção preventiva, configuração de estações de trabalho e assistência rápida para que seus colaboradores produzam sem interrupções.</p>
-          <a href="suporte-ti.html" class="service-link">Página Completa <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('suporte_ti')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <!-- Redes -->
@@ -124,7 +168,7 @@
           </div>
           <h3>Redes</h3>
           <p>Projeto, implementação e otimização de infraestrutura de rede local (LAN), roteadores, switches corporativos, Wi-Fi corporativo estável e VPN segura.</p>
-          <a href="redes.html" class="service-link">Página Completa <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('redes')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <!-- Cybersecurity -->
@@ -134,7 +178,7 @@
           </div>
           <h3>Cybersecurity</h3>
           <p>Auditorias de segurança, testes de invasão, blindagem de sistemas (hardening) e monitoramento ativo contra ataques virtuais.</p>
-          <a href="cybersecurity.html" class="service-link">Página Completa <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('cybersecurity')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <!-- Segurança de Dados -->
@@ -144,7 +188,7 @@
           </div>
           <h3>Segurança de Dados</h3>
           <p>Políticas de backup automático (em nuvem e físico), recuperação de desastres e criptografia para proteger as informações confidenciais do seu negócio.</p>
-          <a href="seguranca-dados.html" class="service-link">Página Completa <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('seguranca_dados')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <!-- Consultoria -->
@@ -154,7 +198,7 @@
           </div>
           <h3>Consultoria</h3>
           <p>Planejamento estratégico de TI, alinhamento com a LGPD e orientação profissional para investimentos inteligentes em hardware e software.</p>
-          <a href="consultoria.html" class="service-link">Página Completa <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('consultoria')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
         </div>
 
         <!-- Suporte 24/7 -->
@@ -164,7 +208,74 @@
           </div>
           <h3>Suporte 24/7</h3>
           <p>Monitoramento ininterrupto e pronto atendimento em regime de plantão para sistemas críticos que não podem parar em momento algum.</p>
-          <a href="suporte-247.html" class="service-link">Página Completa <i class="fa-solid fa-arrow-right"></i></a>
+          <a href="javascript:void(0)" class="service-link" onclick="openServiceModal('suporte_247')">Saber mais <i class="fa-solid fa-arrow-right"></i></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Diagnóstico Ao Vivo de Domínio & Rede Corporativa -->
+  <section id="diagnostico" class="diagnostic-section">
+    <div class="section-container">
+      <div class="diagnostic-card">
+        <div class="diagnostic-header">
+          <span class="section-tag"><i class="fa-solid fa-shield-virus"></i> Ferramenta Gratuita de Auditoria Passiva</span>
+          <h2 class="section-title">Sua empresa está exposta a golpes de e-mail e falhas de rede?</h2>
+          <p class="section-description">
+            Digite o domínio da sua empresa (ex: <code>suaempresa.com.br</code>) para verificar em tempo real se seus servidores possuem blindagem contra falsificação de identidade (SPF/DMARC), configuração segura de e-mail (MX) e resiliência de DNS.
+          </p>
+        </div>
+
+        <form id="domain-scanner-form" class="scanner-form" onsubmit="runDomainDiagnostic(event)">
+          <div class="scanner-input-group">
+            <i class="fa-solid fa-globe"></i>
+            <input
+              type="text"
+              id="scanner-domain-input"
+              placeholder="Digite o site ou domínio da sua empresa (ex: empresa.com.br)"
+              aria-label="Domínio da empresa"
+              required
+            />
+            <button type="submit" id="scanner-submit-btn" class="btn btn-primary">
+              <i class="fa-solid fa-magnifying-glass-chart"></i> Analisar Agora
+            </button>
+          </div>
+          <p class="scanner-disclaimer">
+            <i class="fa-solid fa-lock"></i> Verificação 100% passiva, pública e não-intrusiva (em conformidade com a LGPD).
+          </p>
+        </form>
+
+        <!-- Resultado Dinâmico do Diagnóstico -->
+        <div id="scanner-results" class="scanner-results" style="display: none;">
+          <div class="scanner-score-banner" id="scanner-score-banner">
+            <div class="score-circle" id="scanner-score-circle">
+              <span id="scanner-score-value">--</span>
+              <small>/100</small>
+            </div>
+            <div class="score-summary">
+              <span class="score-badge" id="scanner-risk-badge">Analisando...</span>
+              <h3 id="scanner-domain-title">Relatório Preliminar</h3>
+              <p id="scanner-executive-summary"></p>
+            </div>
+          </div>
+
+          <div class="scanner-checks-grid" id="scanner-checks-grid">
+            <!-- Preenchido via JavaScript -->
+          </div>
+
+          <div class="scanner-human-cta">
+            <div class="human-cta-text">
+              <h4><i class="fa-solid fa-user-shield"></i> Chega de robôs: fale direto com um especialista da Corvix</h4>
+              <p>
+                Hoje em dia existe IA demais para tudo, mas na segurança e infraestrutura da sua empresa <strong>o contato humano faz toda a diferença</strong>. Podemos agendar uma rápida ligação ou reunião de 10 minutos para eu me apresentar e mostrar como corrigir esses pontos?
+              </p>
+            </div>
+            <div class="human-cta-actions">
+              <button type="button" class="btn btn-primary" onclick="sendDiagnosticToWhatsApp()">
+                <i class="fa-brands fa-whatsapp"></i> Agendar Ligação / Receber Laudo
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -221,61 +332,6 @@
         <div class="stats-item">
           <span class="stats-number">+24/7</span>
           <span class="stats-label">Monitoramento Ativo</span>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ Accordion Section -->
-  <section id="faq" class="faq-section">
-    <div class="section-container">
-      <div class="section-header" style="text-align: center;">
-        <span class="section-tag">Tire Suas Dúvidas</span>
-        <h2 class="section-title">Perguntas Frequentes de Clientes</h2>
-        <p class="section-description" style="margin-left: auto; margin-right: auto;">
-          Respostas rápidas para as principais dúvidas sobre nossos serviços e atendimento corporativo.
-        </p>
-      </div>
-
-      <div class="faq-container">
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Como funciona a contratação do suporte para minha empresa?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Realizamos um diagnóstico gratuito da sua infraestrutura atual de TI para mapear necessidades e apresentar uma proposta personalizada sem compromisso.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Atendem apenas empresas ou também pessoas físicas?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Nosso foco principal é B2B (empresas de pequeno, médio e grande porte), mas prestamos suporte técnico e consultoria para projetos e profissionais autônomos.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Qual o tempo de resposta em chamados urgentes?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Em nosso contrato de suporte 24/7 e atendimento prioritário, o início de resposta a incidentes críticos ocorre em até 15 minutos.</p>
-          </div>
-        </div>
-
-        <div class="faq-item">
-          <button class="faq-question">
-            <span>Como o backup em nuvem protege minha empresa contra ransomware?</span>
-            <i class="fa-solid fa-chevron-down"></i>
-          </button>
-          <div class="faq-answer">
-            <p>Utilizamos backups com isolamento e criptografia de chave única. Se um ataque criptografar sua rede, restauramos as versões salvas limpas sem perdas de dados ou pagamento de resgates.</p>
-          </div>
         </div>
       </div>
     </div>
@@ -384,7 +440,7 @@
             <div class="method-icon"><i class="fa-brands fa-whatsapp"></i></div>
             <div>
               <h4>WhatsApp Comercial</h4>
-              <p><a href="https://api.whatsapp.com/send?phone=5519995347558" target="_blank" class="contact-link">(19) 99534-7558</a></p>
+              <p><a href="https://wa.me/5519995347558" target="_blank" class="contact-link">(19) 99534-7558</a></p>
             </div>
           </div>
           <div class="method-item">
@@ -416,27 +472,23 @@
           </div>
 
           <div class="form-group">
-            <label for="phone">Telefone / WhatsApp</label>
-            <div class="input-wrapper">
-              <i class="fa-solid fa-phone"></i>
-              <input type="tel" id="phone" placeholder="(19) 99999-9999" required />
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label for="email">E-mail (Opcional)</label>
+            <label for="email">E-mail de Contato</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-envelope"></i>
-              <input type="email" id="email" placeholder="exemplo@empresa.com" />
+              <input type="email" id="email" placeholder="exemplo@empresa.com" required />
             </div>
           </div>
 
           <div class="form-group">
-            <label for="service-select">Serviço ou Assunto de Interesse</label>
+            <label for="service-select">Serviço ou Pacote de Interesse</label>
             <div class="input-wrapper">
               <i class="fa-solid fa-handshake"></i>
               <select id="service-select" required>
                 <option value="" disabled selected>Selecione uma opção</option>
+                <optgroup label="Atendimento Humano & Diagnóstico">
+                  <option value="Reunião/Ligação de Apresentação (10 min)">Reunião/Ligação de Apresentação (10 min)</option>
+                  <option value="Diagnóstico de Domínio & Rede">Diagnóstico de Domínio & Rede</option>
+                </optgroup>
                 <optgroup label="Serviços Individuais">
                   <option value="Suporte de TI">Suporte de TI</option>
                   <option value="Redes">Redes</option>
@@ -451,11 +503,15 @@
                   <option value="Pacote Suporte/Consultoria">Pacote Suporte/Consultoria</option>
                   <option value="Pacote Proteção Total">Pacote Proteção Total</option>
                 </optgroup>
-                <optgroup label="Oportunidades">
-                  <option value="Trabalhe Conosco">Trabalhe Conosco</option>
-                </optgroup>
               </select>
             </div>
+          </div>
+
+          <div class="form-group human-call-preference">
+            <label class="checkbox-label">
+              <input type="checkbox" id="prefer-human-call" checked />
+              <span><i class="fa-solid fa-phone-volume"></i> Prefiro agendar uma rápida ligação/reunião (10 min) para apresentação humana</span>
+            </label>
           </div>
 
           <div class="form-group">
@@ -467,7 +523,7 @@
           </div>
 
           <button type="submit" class="btn btn-primary btn-submit">
-            <i class="fa-brands fa-whatsapp"></i> Enviar Mensagem via WhatsApp
+            <i class="fa-brands fa-whatsapp"></i> Falar com Especialista via WhatsApp
           </button>
         </form>
       </div>
@@ -486,7 +542,7 @@
         <div class="social-links">
           <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
           <a href="https://www.instagram.com/corvix.tec/" target="_blank" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
-          <a href="https://api.whatsapp.com/send?phone=5519995347558" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+          <a href="https://wa.me/5519995347558" target="_blank" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
         </div>
       </div>
 
@@ -495,22 +551,22 @@
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#diagnostico">Diagnóstico Grátis</a></li>
           <li><a href="#sobre">Sobre Nós</a></li>
           <li><a href="#pacotes">Pacotes</a></li>
           <li><a href="#contato">Contato</a></li>
-          <li><a href="#contato" onclick="prefillService('Trabalhe Conosco')">Trabalhe Conosco</a></li>
         </ul>
       </div>
 
       <div class="footer-services">
         <h4>Serviços</h4>
         <ul>
-          <li><a href="suporte-ti.html">Suporte de TI</a></li>
-          <li><a href="redes.html">Redes</a></li>
-          <li><a href="cybersecurity.html">Cybersecurity</a></li>
-          <li><a href="seguranca-dados.html">Segurança de Dados</a></li>
-          <li><a href="consultoria.html">Consultoria</a></li>
-          <li><a href="suporte-247.html">Suporte 24/7</a></li>
+          <li><a href="#servicos">Suporte de TI</a></li>
+          <li><a href="#servicos">Redes</a></li>
+          <li><a href="#servicos">Cybersecurity</a></li>
+          <li><a href="#servicos">Segurança de Dados</a></li>
+          <li><a href="#servicos">Consultoria</a></li>
+          <li><a href="#servicos">Suporte 24/7</a></li>
         </ul>
       </div>
     </div>
@@ -521,10 +577,49 @@
     </div>
   </footer>
 
-  <!-- Botão Flutuante do WhatsApp -->
-  <a href="https://api.whatsapp.com/send?phone=5519995347558" target="_blank" class="whatsapp-floating-btn" aria-label="Conversar no WhatsApp">
-    <i class="fa-brands fa-whatsapp"></i>
-  </a>
+  <!-- Widget Assistente Consultivo Corvix (Triagem Rápida + Convite Humano) -->
+  <div class="corvix-assistant-popup" id="corvix-assistant-popup">
+    <div class="assistant-header">
+      <div class="assistant-avatar">
+        <i class="fa-solid fa-user-tie"></i>
+        <span class="status-dot"></span>
+      </div>
+      <div class="assistant-title">
+        <strong>Especialista Corvix</strong>
+        <span>Atendimento Humano Direto</span>
+      </div>
+      <button type="button" class="assistant-close" onclick="toggleAssistantPopup(false)" aria-label="Fechar assistente">&times;</button>
+    </div>
+    <div class="assistant-body">
+      <p class="assistant-msg">
+        Olá! 👋 Sabemos que hoje em dia tem <strong>IA e robô demais</strong> no mercado — por isso aqui na Corvix fazemos questão do <strong>contato humano direto</strong>.
+      </p>
+      <p class="assistant-msg">
+        Podemos agendar uma rápida <strong>ligação ou reunião de 10 min</strong> para eu me apresentar e entender o cenário da sua empresa?
+      </p>
+      <div class="assistant-quick-options">
+        <button type="button" class="assistant-chip" onclick="quickAssistantAction('reuniao')">
+          <i class="fa-solid fa-phone-volume"></i> Sim, agendar ligação rápida
+        </button>
+        <button type="button" class="assistant-chip" onclick="quickAssistantAction('scanner')">
+          <i class="fa-solid fa-radar"></i> Testar segurança do meu domínio
+        </button>
+        <button type="button" class="assistant-chip" onclick="quickAssistantAction('urgente')">
+          <i class="fa-solid fa-bolt"></i> Preciso de suporte/rede urgente
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Botão Flutuante do WhatsApp + Gatilho do Assistente -->
+  <div class="floating-actions-stack">
+    <button type="button" class="assistant-trigger-pill" id="assistant-trigger-pill" onclick="toggleAssistantPopup(true)">
+      <span class="pulse-dot"></span> Falar com Especialista (Sem Robôs)
+    </button>
+    <a href="https://wa.me/5519995347558" target="_blank" class="whatsapp-floating-btn" aria-label="Conversar no WhatsApp">
+      <i class="fa-brands fa-whatsapp"></i>
+    </a>
+  </div>
 
   <!-- Modal de Detalhes dos Serviços -->
   <div class="service-modal" id="service-modal">
